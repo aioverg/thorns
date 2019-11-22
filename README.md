@@ -1,5 +1,7 @@
 # thorns
 
+# 该项目是使用vue搭建的网站后台管理系统
+
 ## Project setup
 ```
 npm install
