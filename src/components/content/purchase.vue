@@ -1,0 +1,10 @@
+//商品采购
+<template>
+  <div>
+    <div></div>
+    <div>
+        <p>供应商（必填）</p>
+    </div>
+    <div></div>
+  </div>
+</template>

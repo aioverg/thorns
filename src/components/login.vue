@@ -4,7 +4,7 @@
             <p>hello</p>
             <p><span>账号：</span><input></p>
             <p><span>密码：</span><input></p>
-            <button>登陆</button>
+            <button @click="login">登陆</button>
         </div>
     </div>
 </template>
@@ -12,7 +12,8 @@
 
 export default {
   name: 'login',
-  props: {
+  methods: {
+      login: function(){this.$router.push({ path: '/main' })}  //点击登录跳转到主页面
   }
 }
 </script>
