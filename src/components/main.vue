@@ -9,10 +9,14 @@
       <div id="menu">
         <ul>
           <li>
-            <span>商品采购</span>
+            <span>
+              <router-link to="/main">商品采购</router-link>
+            </span>
           </li>
           <li>
-            <span>采购退货</span>
+            <span>
+              <router-link to="/purchasreturn">采购退货</router-link>
+            </span>
           </li>
           <li>
             <span>商品销售</span>
@@ -76,7 +80,11 @@
           </li>
         </ul>
       </div>
-      <div id="list"></div>
+      <div id="list-div">
+        <div id="list">
+          <router-view></router-view>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -101,7 +109,7 @@ export default {
   box-sizing: border-box;
   background-color: white;
 }
-#content{
+#content {
   display: flex;
   width: 100%;
   justify-content: flex-start;
@@ -115,14 +123,6 @@ export default {
   background-color: white;
   overflow-y: scroll;
   overflow-x: hidden;
-  height: 580px;
-  border-right: solid 1px #e2e2e2;
-}
-#list{
-  display: inline-block;
-  flex-grow: 99;
-  background-color: white;
-  width: 300px;
   height: 580px;
 }
 #menu ul {
@@ -159,5 +159,51 @@ li {
 ::-webkit-scrollbar-track {
   border-radius: 10px; /*滚动条轨道圆角*/
   background: rgba(250, 250, 250, 0.9); /*滚动条轨道颜色*/
+}
+#list-div {
+  display: inline-block;
+  flex-grow: 99;
+  background-color: white;
+  width: 300px;
+  height: 580px;
+}
+#list {
+  display: flex;
+  flex-direction: column;
+}
+#list-head {
+  height: 40px;
+  border-top: 1px solid #e2e2e2;
+  border-bottom: 1px solid #e2e2e2;
+  text-align: left;
+}
+#list-body {
+  height: 480px;
+  overflow-y: scroll;
+  text-align: left;
+}
+#list-foot {
+  border-top: 1px solid #e2e2e2;
+  border-bottom: 1px solid #e2e2e2;
+  height: 60px;
+}
+#list-head p{
+  margin: 0 0 0 20px;
+  height: 40px;
+  line-height: 40px;
+}
+#list-foot button{
+  height: 34px;
+  width: 118px;
+  float: left;
+  margin: 0 0 0 20px;
+  background-color: #0DB3A6;
+  border: 1px solid #0DB3A6;
+  cursor: pointer;
+  color: #fff;
+}
+#list-foot button:hover{
+  background-color: #0a8d83;
+  border: 1px solid #0a8d83;
 }
 </style>
