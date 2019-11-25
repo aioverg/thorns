@@ -1,19 +1,34 @@
 <template>
-    <div id="login">
-        <div>
-            <p>hello</p>
-            <p><span>账号：</span><input></p>
-            <p><span>密码：</span><input></p>
-            <button @click="login">登陆</button>
-        </div>
+  <div id="login">
+    <div>
+      <p>hello</p>
+        <p><span>账号：</span><input v-model="name" placeholder="admin"></p>
+        <p><span>密码：</span><input v-model="password" placeholder="admin"></p>
+        <button @click="login">登陆</button>
     </div>
+  </div>
 </template>
 <script>
 
 export default {
   name: 'login',
+  data(){
+    return{
+      name: 'admin',
+      password: 'admin'
+    }
+  },
   methods: {
-      login: function(){this.$router.push({ path: '/main' })}  //点击登录跳转到主页面
+    //登录验证
+    login: function(){
+      const _this = this;
+      _this.axios.get('/login').then(
+        function(res){
+          if(res.status===200&&res.data.name===_this.name&&res.data.password===_this.password){_this.$router.push({ path: '/main' })}
+          else(alert('账号密码错误'))
+        }
+      )
+    }
   }
 }
 </script>
@@ -33,6 +48,7 @@ export default {
     }
     #login input{
         height: 24px;
+        width: 156px;
     }
     #login p:nth-child(1){
         font-size: 38px;

@@ -3,7 +3,7 @@ import Router from 'vue-router'
 import login from '../components/login'  //导入登录组件
 import main from '../components/main'    //导入主页面组件
 import purchase from '../components/content/purchase/purchase'
-import purchaseRturn from '../components/content/purchaseReturn'
+import purchaseRturn from '../components/content/purchasereturn/purchaseReturn'
 
 Vue.use(Router)
 
