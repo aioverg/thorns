@@ -3,7 +3,7 @@
     <div></div>
     <div>
         <div>
-          <h1>采购退货</h1>
+          <h1>客户对账</h1>
         </div>
     </div>
     <div></div>
@@ -12,6 +12,6 @@
 
 <script>
 export default {
-  name: 'purchaseReturn'
+  name: 'customerReconciliation'
 }
 </script>

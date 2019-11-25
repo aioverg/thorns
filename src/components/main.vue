@@ -19,25 +19,37 @@
             </span>
           </li>
           <li>
-            <span>商品销售</span>
+            <span>
+              <router-link to="/sell">商品销售</router-link>
+            </span>
           </li>
           <li>
-            <span>销售退货</span>
+            <span>
+              <router-link to="/sellreturn">销售退货</router-link>
+            </span>
           </li>
           <li>
-            <span>库存盘点</span>
+            <span>
+              <router-link to="/inventory">库存盘点</router-link>
+            </span>
           </li>
           <li>
             <span v-on:click="up">进销分析</span>
             <ul style="display: none;">
               <li>
-                <span class="menu-child">进销对比</span>
+                <span class="menu-child">
+                  <router-link to="/analysis/contrast">进销对比</router-link>
+                </span>
               </li>
               <li>
-                <span class="menu-child">采购统计</span>
+                <span class="menu-child">
+                  <router-link to="/analysis/procurementstatistics">采购统计</router-link>
+                </span>
               </li>
               <li>
-                <span class="menu-child">销售统计</span>
+                <span class="menu-child">
+                  <router-link to="/analysis/salesstatistics">销售统计</router-link>
+                  </span>
               </li>
             </ul>
           </li>
@@ -45,19 +57,29 @@
             <span v-on:click="up">财务结算</span>
             <ul style="display: none;">
               <li>
-                <span class="menu-child">毛利统计</span>
+                <span class="menu-child">
+                  <router-link to="/settlement/grossprofit">毛利统计</router-link>
+                </span>
               </li>
               <li>
-                <span class="menu-child">客户收款</span>
+                <span class="menu-child">
+                  <router-link to="/settlement/customercollection">客户收款</router-link>
+                </span>
               </li>
               <li>
-                <span class="menu-child">客户对账</span>
+                <span class="menu-child">
+                  <router-link to="/settlement/customerreconciliation">客户对账</router-link>
+                </span>
               </li>
               <li>
-                <span class="menu-child">供应商对账</span>
+                <span class="menu-child">
+                  <router-link to="/settlement/supplierreconciliation">供应商对账</router-link>
+                </span>
               </li>
               <li>
-                <span class="menu-child">供应商汇款</span>
+                <span class="menu-child">
+                  <router-link to="/settlement/supplierremittance">供应商汇款</router-link>
+                </span>
               </li>
             </ul>
           </li>
@@ -65,16 +87,29 @@
             <span v-on:click="up">系统设置</span>
             <ul style="display: none;">
               <li>
-                <span class="menu-child">仓库管理</span>
+                <span class="menu-child">
+                  <router-link to="/system/warehousemanagement">仓库管理</router-link>
+                </span>
               </li>
               <li>
-                <span class="menu-child">商品管理</span>
+                <span class="menu-child">
+                  <router-link to="/system/commoditymanagement">商品管理</router-link>
+                </span>
               </li>
               <li>
-                <span class="menu-child">供应商管理</span>
+                <span class="menu-child">
+                  <router-link to="/system/suppliermanagement">供应商管理</router-link>
+                </span>
               </li>
               <li>
-                <span class="menu-child">客户管理</span>
+                <span class="menu-child">
+                  <router-link to="/system/customermanagement">客户管理</router-link>
+                </span>
+              </li>
+              <li>
+                <span class="menu-child">
+                  <router-link to="/system/privilegemanagement">权限管理</router-link>
+                </span>
               </li>
             </ul>
           </li>
