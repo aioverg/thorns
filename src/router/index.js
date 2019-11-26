@@ -23,7 +23,8 @@ import privilegeManagement from '../components/content/system/privilegeManagemen
 
 Vue.use(Router)
 
-export default new Router({
+//通用路由
+export const constantRouter = {
     mode: 'hash', //使用hash模式
     routes: [
         {  //登录
@@ -101,32 +102,53 @@ export default new Router({
                     name: 'supplierRemittance',
                     component: supplierRemittance
                 },
+            ]
+        }
+    ]
+}
+
+//需要权限的路由，异步路由
+export const asyncRouter={
+    mode: 'hash',
+    routes: [
+        {
+            path: '/main',
+            name: 'main',
+            component: main,
+            children:[
                 {
                     path: '/system/warehousemanagement',
                     name: 'warehouseManagement',
-                    component: warehouseManagement
+                    component: warehouseManagement,
+                    meta: { power:true }
                 },
                 {
                     path: '/system/commoditymanagement',
                     name: 'commodityManagement',
-                    component: commodityManagement
+                    component: commodityManagement,
+                    meta: { power:true }
                 },
                 {
                     path: '/system/suppliermanagement',
                     name: 'supplierManagement',
-                    component: supplierManagement
+                    component: supplierManagement,
+                    meta: { power:true },
                 },
                 {
                     path: '/system/customermanagement',
                     name: 'customerManagement',
-                    component: customerManagement
+                    component: customerManagement,
+                    meta: { power:true }
                 },
                 {
                     path: '/system/privilegemanagement',
                     name: 'privilegeManagement',
-                    component: privilegeManagement
-                },
+                    component: privilegeManagement,
+                    meta: { power:true }
+                }
             ]
         }
     ]
-})
+}
+
+export default new Router(constantRouter)

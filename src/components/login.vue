@@ -24,7 +24,7 @@ export default {
       const _this = this;
       _this.axios.get('/login').then(
         function(res){
-          if(res.status===200&&res.data.name===_this.name&&res.data.password===_this.password){_this.$router.push({ path: '/main' })}
+          if(res.status===200&&res.data.admin.name===_this.name&&res.data.admin.password===_this.password){_this.$router.push({ path: '/main' })}
           else(alert('账号密码错误'))
         }
       )
