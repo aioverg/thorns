@@ -86,11 +86,11 @@ export const constantRouter = [
 
 //需要权限的路由，异步路由
 export const asyncRouter = [
-    //{
-    //    path: '/main',
-    //    name: 'main',
-    //    component: () => import('../components/main'),  //主页面组件
-    //    children: [
+    {
+        path: '/main',
+        name: 'main',
+        component: () => import('../components/main'),  //主页面组件
+        children: [
             {
                 path: '/system/warehousemanagement',
                 name: 'warehouseManagement',
@@ -121,8 +121,8 @@ export const asyncRouter = [
                 component: () => import('../components/content/system/privilegeManagement'),  //权限管理
                 //meta: { power:true }
             }
-    //    ]
-    //}
+        ]
+    }
 ]
 
 const createRouter = () => new Router({
