@@ -16,11 +16,11 @@ const store = new Vuex.Store({
       },
       {
         title: "商品销售",
-        link: "/sell"
+        link: "/sales"
       },
       {
         title: "销售退货",
-        link: "/sellreturn"
+        link: "/salesreturn"
       },
       {
         title: "库存盘点",
@@ -90,10 +90,25 @@ const store = new Vuex.Store({
             title: "客户管理",
             link: "/system/customermanagement"
           },
+        ]
+      },
+      {
+        title: "账号管理",
+        link: '',
+        children: [
           {
-            title: "权限管理",
-            link: "/system/privilegemanagement"
+            title: "修改密码",
+            link: "/accountmanagement/changePassword"
+          },
+          {
+            title: "添加账号",
+            link: "/accountmanagement/addaccount"
+          },
+          {
+            title: "账号管理",
+            link: "/accountmanagement/accountmanagement"
           }
+
         ]
       }
     ]

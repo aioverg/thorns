@@ -13,17 +13,17 @@ export const asyncRouterList = [
             purchaseRturn: {
                 path: '/purchasreturn',
                 name: 'purchaseRturn',
-                component: () => import('../components/content/purchasereturn/purchaseReturn')  //采购退货
+                component: () => import('../components/content/purchaseReturn/purchaseReturn')  //采购退货
             },
-            sell:{
-                path: '/sell',
-                name: 'sell',
-                component: () => import('../components/content/sell/sell')  ////商品销售
+            sales:{
+                path: '/sales',
+                name: 'sales',
+                component: () => import('../components/content/sales/sales')  ////商品销售
             },
-            sellReturn: {
-                path: '/sellreturn',
-                name: 'sellReturn',
-                component: () => import('../components/content/sellreturn/sellReturn')  //销售退货
+            salesReturn: {
+                path: '/salesreturn',
+                name: 'salesReturn',
+                component: () => import('../components/content/salesReturn/salesReturn')  //销售退货
             },
             inventory: {
                 path: '/inventory',
@@ -48,64 +48,72 @@ export const asyncRouterList = [
             customerCollection: {
                 path: '/settlement/customercollection',
                 name: 'customerCollection',
-                component: () => import('../components/content/settlement/customerCollection')  //客户收款
+                component: () => import('../components/content/financialSettlement/customerCollection')  //客户收款
             },
             customerReconciliation: {
                 path: '/settlement/customerreconciliation',
                 name: 'customerReconciliation',
-                component: () => import('../components/content/settlement/customerReconciliation')  //客户对账
+                component: () => import('../components/content/financialSettlement/customerReconciliation')  //客户对账
             },
             grossProfit: {
                 path: '/settlement/grossprofit',
                 name: 'grossProfit',
-                component: () => import('../components/content/settlement/grossProfit')  //毛利统计
+                component: () => import('../components/content/financialSettlement/grossProfit')  //毛利统计
             },
             supplierReconciliation: {
                 path: '/settlement/supplierreconciliation',
                 name: 'supplierReconciliation',
-                component: () => import('../components/content/settlement/supplierReconciliation')  //供应商对账
+                component: () => import('../components/content/financialSettlement/supplierReconciliation')  //供应商对账
             },
             supplierRemittance: {
                 path: '/settlement/supplierremittance',
                 name: 'supplierRemittance',
-                component: () => import('../components/content/settlement/supplierRemittance')  //供应商汇款
+                component: () => import('../components/content/financialSettlement/supplierRemittance')  //供应商汇款
             },
             warehouseManagement: {
                 path: '/system/warehousemanagement',
                 name: 'warehouseManagement',
-                component: () => import('../components/content/system/warehouseManagement'),  //仓库管理
+                component: () => import('../components/content/systemSetup/warehouseManagement'),  //仓库管理
                 //meta: { power:true }
             },
             commodityManagement: {
                 path: '/system/commoditymanagement',
                 name: 'commodityManagement',
-                component: () => import('../components/content/system/commodityManagement'),  //商品管理
+                component: () => import('../components/content/systemSetup/commodityManagement'),  //商品管理
                 //meta: { power:true }
             },
             supplierManagement: {
                 path: '/system/suppliermanagement',
                 name: 'supplierManagement',
-                component: () => import('../components/content/system/supplierManagement'),  //供应管理
+                component: () => import('../components/content/systemSetup/supplierManagement'),  //供应管理
                 //meta: { power:true },
             },
             customerManagement: {
                 path: '/system/customermanagement',
                 name: 'customerManagement',
-                component: () => import('../components/content/system/customerManagement'),  //客户管理
+                component: () => import('../components/content/systemSetup/customerManagement'),  //客户管理
                 //meta: { power:true }
             },
-            privilegeManagement: {
-                path: '/system/privilegemanagement',
-                name: 'privilegeManagement',
-                component: () => import('../components/content/system/privilegeManagement'),  //权限管理
-                //meta: { power:true }
+            changePassword:{
+                path: '/accountmanagement/changepassword',
+                name: 'changePassword',
+                component: () => import('../components/content/accountManagement/changePassword')  //修改密码
             },
-            error: {//没有权限显示的页面
+            addAccount:{
+                path: '/accountmanagement/addaccount',
+                name: '/addAccount/',
+                component: ()=> import('../components/content/accountManagement/addAccount')  //添加账号
+            },
+            accountManagement: {
+                path: '/accountmanagement/accountmanagement',
+                name: 'accountManagement',
+                component: ()=> import('../components/content/accountManagement/accountManagement')  //账号管理
+            },
+            noAuthority: {//没有权限显示的页面
                 path: '/*',
-                name: 'error',
-                component: () => import('../components/content/errorpage/404')
+                name: 'noAuthority',
+                component: () => import('../components/content/errorPage/noAuthority')
             }
-            
         }
     }
 ]

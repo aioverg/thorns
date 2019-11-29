@@ -12,8 +12,8 @@ const newRouterList = [{
 const power={
     purchase: true,
     purchaseRturn: true,
-    sell: true,
-    sellReturn: true,
+    sales: true,
+    salesReturn: true,
     inventory: true,
     contrast: true,
     procurementStatistics: true,
@@ -27,8 +27,10 @@ const power={
     commodityManagement: true,
     supplierManagement: true,
     customerManagement: true,
-    privilegeManagement: false,
-    error: true,   //没有权限显示的页面
+    changePassword: true,
+    addAccount: true,
+    accountManagement: true,
+    noAuthority: true,   //没有权限显示的页面
 }
 
 //根据权限数据，从所有路由表中拉取有权限的路由，把这些路由组成一个新的路由表，然后加载

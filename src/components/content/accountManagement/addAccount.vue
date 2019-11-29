@@ -3,7 +3,7 @@
     <div></div>
     <div>
         <div>
-          <h1>没有权限访问</h1>
+          <h1>添加账号</h1>
         </div>
     </div>
     <div></div>
@@ -12,6 +12,6 @@
 
 <script>
 export default {
-  name: '404'
+  name: 'addAccount'
 }
 </script>
