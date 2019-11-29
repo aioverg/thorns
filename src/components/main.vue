@@ -8,109 +8,18 @@
     <div id="content">
       <div id="menu">
         <ul>
-          <li>
-            <span>
-              <router-link to="/main">商品采购</router-link>
-            </span>
-          </li>
-          <li>
-            <span>
-              <router-link to="/purchasreturn">采购退货</router-link>
-            </span>
-          </li>
-          <li>
-            <span>
-              <router-link to="/sell">商品销售</router-link>
-            </span>
-          </li>
-          <li>
-            <span>
-              <router-link to="/sellreturn">销售退货</router-link>
-            </span>
-          </li>
-          <li>
-            <span>
-              <router-link to="/inventory">库存盘点</router-link>
-            </span>
-          </li>
-          <li>
-            <span v-on:click="up">进销分析</span>
+          <li v-for="(one, idone) in menu" v-bind:key="idone">
+              <!--如果目录有子目录就绑定click事件，且菜单不作为路由-->
+              <span v-if="one.children" v-on:click="up">{{one.title}}</span>
+              <!--如果没有子目录就不绑定click事件，菜单作为路由-->
+              <router-link v-bind:to="one.link" a v-else tag="span">{{one.title}}</router-link>
             <ul style="display: none;">
-              <li>
-                <span class="menu-child">
-                  <router-link to="/analysis/contrast">进销对比</router-link>
-                </span>
+              <!--如果有子目录则循环渲染出子目录-->
+              <template v-if="one.children">
+              <li v-for="(two, idtwo) in one.children" v-bind:key="idtwo">
+                <router-link v-bind:to="two.link" tag="span" class="menu-child">{{two.title}}</router-link>
               </li>
-              <li>
-                <span class="menu-child">
-                  <router-link to="/analysis/procurementstatistics">采购统计</router-link>
-                </span>
-              </li>
-              <li>
-                <span class="menu-child">
-                  <router-link to="/analysis/salesstatistics">销售统计</router-link>
-                  </span>
-              </li>
-            </ul>
-          </li>
-          <li>
-            <span v-on:click="up">财务结算</span>
-            <ul style="display: none;">
-              <li>
-                <span class="menu-child">
-                  <router-link to="/settlement/grossprofit">毛利统计</router-link>
-                </span>
-              </li>
-              <li>
-                <span class="menu-child">
-                  <router-link to="/settlement/customercollection">客户收款</router-link>
-                </span>
-              </li>
-              <li>
-                <span class="menu-child">
-                  <router-link to="/settlement/customerreconciliation">客户对账</router-link>
-                </span>
-              </li>
-              <li>
-                <span class="menu-child">
-                  <router-link to="/settlement/supplierreconciliation">供应商对账</router-link>
-                </span>
-              </li>
-              <li>
-                <span class="menu-child">
-                  <router-link to="/settlement/supplierremittance">供应商汇款</router-link>
-                </span>
-              </li>
-            </ul>
-          </li>
-          <li>
-            <span v-on:click="up">系统设置</span>
-            <ul style="display: none;">
-              <li>
-                <span class="menu-child">
-                  <router-link to="/system/warehousemanagement">仓库管理</router-link>
-                </span>
-              </li>
-              <li>
-                <span class="menu-child">
-                  <router-link to="/system/commoditymanagement">商品管理</router-link>
-                </span>
-              </li>
-              <li>
-                <span class="menu-child">
-                  <router-link to="/system/suppliermanagement">供应商管理</router-link>
-                </span>
-              </li>
-              <li>
-                <span class="menu-child">
-                  <router-link to="/system/customermanagement">客户管理</router-link>
-                </span>
-              </li>
-              <li>
-                <span class="menu-child">
-                  <router-link to="/system/privilegemanagement">权限管理</router-link>
-                </span>
-              </li>
+              </template>
             </ul>
           </li>
         </ul>
@@ -126,6 +35,11 @@
 
 <script>
 export default {
+  computed: {
+    menu() {
+      return this.$store.state.menu;
+    }
+  },
   methods: {
     up: function(el) {
       if (el.target.nextSibling.style.display == "none") {

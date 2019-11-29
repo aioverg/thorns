@@ -1,9 +1,7 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
+//动态生成侧边栏的数据
 
-Vue.use(Vuex)
 //注意一定要使用数组，因为使用数组加载数据的逻辑较为简单
-const store = new Vuex.Store({
+export const menuItems = {
   state: {
     menu: [
       {
@@ -98,6 +96,4 @@ const store = new Vuex.Store({
       }
     ]
   }
-})
-
-export default store
+}

@@ -100,11 +100,12 @@ export const asyncRouterList = [
                 component: () => import('../components/content/system/privilegeManagement'),  //权限管理
                 //meta: { power:true }
             },
-            error: {//没有权限显示的页面
+/*            error: {//没有权限显示的页面
                 path: '/*',
                 name: 'error',
                 component: () => import('../components/content/errorpage/404')
             }
+            */
         }
     }
 ]
