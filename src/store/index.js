@@ -6,26 +6,7 @@ Vue.use(Vuex)
 const store = new Vuex.Store({
   state: {
     menu: [
-      {
-        title: "商品采购",
-        link: "/main"
-      },
-      {
-        title: "采购退货",
-        link: "/purchasreturn"
-      },
-      {
-        title: "商品销售",
-        link: "/sales"
-      },
-      {
-        title: "销售退货",
-        link: "/salesreturn"
-      },
-      {
-        title: "库存盘点",
-        link: "/inventory"
-      },
+      //进销分析块--analysis
       {
         title: "进销分析",
         link: "",
@@ -44,6 +25,72 @@ const store = new Vuex.Store({
           },
         ]
       },
+
+      //采购管理块--purchase
+      {
+        title: "采购管理",
+        link: "",
+        children:[
+          {
+            title: "商品采购",
+            link: "/main"
+          },
+          {
+            title: "采购退货",
+            link: "/purchasreturn"
+          },
+          {
+            title: "商品管理",
+            link: "/system/commoditymanagement"
+          },
+          {
+            title: "供应商管理",
+            link: "/system/suppliermanagement"
+          },
+        ]
+      },
+
+      //销售管理
+      {
+        title: "销售管理",
+        link: "",
+        children:[
+          {
+            title: "商品销售",
+            link: "/sales"
+          },
+          {
+            title: "销售退货",
+            link: "/salesreturn"
+          },
+          {
+            title: "客户管理",
+            link: "/system/customermanagement"
+          }
+        ]
+      },
+
+      //仓库管理
+      {
+        title: "仓库管理",
+        link: "",
+        children:[
+          {
+            title: "库存盘点",
+            link: "/warehouse/inventory"
+          },
+          {
+            title: "新增仓库",
+            link: "/warehouse/inventory"
+          },
+          {
+            title: "仓库管理",
+            link: "/warehouse/warehousemanagement"
+          },
+        ]
+      },
+
+      //财务结算
       {
         title: "财务结算",
         link: "",
@@ -70,45 +117,24 @@ const store = new Vuex.Store({
           }
         ]
       },
+
+      //系统设置
       {
         title: "系统设置",
         link: "",
         children: [
           {
-            title: "仓库管理",
-            link: "/system/warehousemanagement"
-          },
-          {
-            title: "商品管理",
-            link: "/system/commoditymanagement"
-          },
-          {
-            title: "供应商管理",
-            link: "/system/suppliermanagement"
-          },
-          {
-            title: "客户管理",
-            link: "/system/customermanagement"
-          },
-        ]
-      },
-      {
-        title: "账号管理",
-        link: '',
-        children: [
-          {
             title: "修改密码",
-            link: "/accountmanagement/changePassword"
+            link: "/system/changepassword"
           },
           {
             title: "添加账号",
-            link: "/accountmanagement/addaccount"
+            link: "/system/addaccount"
           },
           {
             title: "账号管理",
-            link: "/accountmanagement/accountmanagement"
+            link: "/system/accountmanagement"
           }
-
         ]
       }
     ]

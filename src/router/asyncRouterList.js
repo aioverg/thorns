@@ -5,31 +5,7 @@ export const asyncRouterList = [
         name: 'main',
         component: () => import('../components/main'),  //主页面组件
         children: {
-            purchase: {
-                path: '/main',
-                name: 'purchase',
-                component: () => import('../components/content/purchase/purchase')  //商品采购
-            },
-            purchaseRturn: {
-                path: '/purchasreturn',
-                name: 'purchaseRturn',
-                component: () => import('../components/content/purchaseReturn/purchaseReturn')  //采购退货
-            },
-            sales:{
-                path: '/sales',
-                name: 'sales',
-                component: () => import('../components/content/sales/sales')  ////商品销售
-            },
-            salesReturn: {
-                path: '/salesreturn',
-                name: 'salesReturn',
-                component: () => import('../components/content/salesReturn/salesReturn')  //销售退货
-            },
-            inventory: {
-                path: '/inventory',
-                name: 'inventory',
-                component: () => import('../components/content/inventory/inventory')  //库存盘点
-            },
+            //进销分析块--analysis
             contrast: {
                 path: '/analysis/contrast',
                 name: 'contrast',
@@ -45,6 +21,65 @@ export const asyncRouterList = [
                 name: 'salesStatistics',
                 component: () => import('../components/content/analysis/salesStatistics')  //销售统计
             },
+
+            //采购管理块--purchase
+            purchase: {
+                path: '/purchase/purchase',
+                name: 'purchase',
+                component: () => import('../components/content/purchase/purchase')  //商品采购
+            },
+            purchaseRturn: {
+                path: '/purchase/purchaseReturn',
+                name: 'purchaseRturn',
+                component: () => import('../components/content/purchase/purchaseReturn')  //采购退货
+            },
+            commodityManagement: {
+                path: '/purchase/commodityManagemen',
+                name: 'commodityManagement',
+                component: () => import('../components/content/purchase/commodityManagement'),  //商品管理
+                //meta: { power:true }
+            },
+            supplierManagement: {
+                path: '/purchase/suppliermanagement',
+                name: 'supplierManagement',
+                component: () => import('../components/content/purchase/supplierManagement'),  //供应商管理
+                //meta: { power:true },
+            },
+            //销售管理块--sales
+            sales:{
+                path: '/sales/sales',
+                name: 'sales',
+                component: () => import('../components/content/sales/sales')  //商品销售
+            },
+            salesReturn: {
+                path: '/sales/salesReturn',
+                name: 'salesReturn',
+                component: () => import('../components/content/sales/salesReturn')  //销售退货
+            },
+            customerManagement: {
+                path: '/sales/customermanagement',
+                name: 'customerManagement',
+                component: () => import('../components/content/sales/customerManagement'),  //客户管理
+                //meta: { power:true }
+            },
+            //仓库管理块--warehouse
+            inventory: {
+                path: '/warehouse/inventory',
+                name: 'inventory',
+                component: () => import('../components/content/warehouse/inventory')  //库存盘点
+            },
+            newWarehouse: {
+                path: '/warehouse/newWarehouse',
+                name: 'newWarehouse',
+                component: () => import('../components/content/warehouse/newWarehouse')  //新增仓库
+            },
+            warehouseManagement: {
+                path: '/warehouse/warehousemanagement',
+                name: 'warehouseManagement',
+                component: () => import('../components/content/warehouse/warehouseManagement'),  //仓库管理
+                //meta: { power:true }
+            },
+            //财务结算块--financialSettlement
             customerCollection: {
                 path: '/settlement/customercollection',
                 name: 'customerCollection',
@@ -70,45 +105,24 @@ export const asyncRouterList = [
                 name: 'supplierRemittance',
                 component: () => import('../components/content/financialSettlement/supplierRemittance')  //供应商汇款
             },
-            warehouseManagement: {
-                path: '/system/warehousemanagement',
-                name: 'warehouseManagement',
-                component: () => import('../components/content/systemSetup/warehouseManagement'),  //仓库管理
-                //meta: { power:true }
-            },
-            commodityManagement: {
-                path: '/system/commoditymanagement',
-                name: 'commodityManagement',
-                component: () => import('../components/content/systemSetup/commodityManagement'),  //商品管理
-                //meta: { power:true }
-            },
-            supplierManagement: {
-                path: '/system/suppliermanagement',
-                name: 'supplierManagement',
-                component: () => import('../components/content/systemSetup/supplierManagement'),  //供应管理
-                //meta: { power:true },
-            },
-            customerManagement: {
-                path: '/system/customermanagement',
-                name: 'customerManagement',
-                component: () => import('../components/content/systemSetup/customerManagement'),  //客户管理
-                //meta: { power:true }
-            },
+
+            //系统设置块--systemSetup
             changePassword:{
-                path: '/accountmanagement/changepassword',
+                path: '/system/changepassword',
                 name: 'changePassword',
-                component: () => import('../components/content/accountManagement/changePassword')  //修改密码
+                component: () => import('../components/content/systemSetup/changePassword')  //修改密码
             },
             addAccount:{
-                path: '/accountmanagement/addaccount',
+                path: '/system/addaccount',
                 name: '/addAccount/',
-                component: ()=> import('../components/content/accountManagement/addAccount')  //添加账号
+                component: ()=> import('../components/content/systemSetup/addAccount')  //添加账号
             },
             accountManagement: {
-                path: '/accountmanagement/accountmanagement',
+                path: '/system/accountmanagement',
                 name: 'accountManagement',
-                component: ()=> import('../components/content/accountManagement/accountManagement')  //账号管理
+                component: ()=> import('../components/content/systemSetup/accountManagement')  //账号管理
             },
+            //没有权限块--errorPage
             noAuthority: {//没有权限显示的页面
                 path: '/*',
                 name: 'noAuthority',
