@@ -6,6 +6,11 @@ export const asyncRouterList = [
         component: () => import('../components/main'),  //主页面组件
         children: {
             //进销分析块--analysis
+            main: {
+                path:"/main",
+                
+                component: () => import('../components/content/analysis/contrast')
+            },
             contrast: {
                 path: '/analysis/contrast',
                 name: 'contrast',

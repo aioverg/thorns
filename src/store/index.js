@@ -33,19 +33,19 @@ const store = new Vuex.Store({
         children:[
           {
             title: "商品采购",
-            link: "/main"
+            link: "/purchase/purchase"
           },
           {
             title: "采购退货",
-            link: "/purchasreturn"
+            link: "/purchase/purchaseReturn"
           },
           {
             title: "商品管理",
-            link: "/system/commoditymanagement"
+            link: "/purchase/commodityManagemen"
           },
           {
             title: "供应商管理",
-            link: "/system/suppliermanagement"
+            link: "/purchase/suppliermanagement"
           },
         ]
       },
@@ -57,15 +57,15 @@ const store = new Vuex.Store({
         children:[
           {
             title: "商品销售",
-            link: "/sales"
+            link: "/sales/sales"
           },
           {
             title: "销售退货",
-            link: "/salesreturn"
+            link: "/sales/salesReturn"
           },
           {
             title: "客户管理",
-            link: "/system/customermanagement"
+            link: "/sales/customermanagement"
           }
         ]
       },
@@ -81,7 +81,7 @@ const store = new Vuex.Store({
           },
           {
             title: "新增仓库",
-            link: "/warehouse/inventory"
+            link: "/warehouse/newWarehouse"
           },
           {
             title: "仓库管理",

@@ -10,11 +10,13 @@ const newRouterList = [{
 }]
 //权限数据
 const power={
+    main: true,
     purchase: true,
     purchaseRturn: true,
     sales: true,
     salesReturn: true,
     inventory: true,
+    newWarehouse: true,
     contrast: true,
     procurementStatistics: true,
     salesStatistics: true,
