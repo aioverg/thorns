@@ -1,0 +1,76 @@
+
+#list-body p{
+    margin: 25px 0 0 0;
+    font-weight: 600;
+    font-size: 14px;
+  }
+  input{
+    height: 25px;
+    width: 330px;
+  }
+  #list-body input{
+    margin: 5px 0 0 0;
+  }
+  table{
+    border-collapse: collapse;
+    width: 1000px;
+    margin: 5px 0 0 0;
+  }
+  td{
+    border: 1px solid;
+    text-align: center;
+  }
+  table tr td:nth-child(1){
+    width: 60px;
+  }
+  table tr td:nth-child(4){
+    width: 80px;
+  }
+  table tr td:nth-child(5){
+    width: 130px;
+  }
+  table tr td:nth-child(6){
+    width: 130px;
+  }
+  #list table tr td:nth-child(6) input{
+    width: 120px;
+    height: 20px;
+    margin: 2px 0;
+  }
+  table tr td:nth-child(7){
+    width: 80px;
+  }
+  table tr td:nth-child(8){
+    width: 100px;
+  }
+  #list table tr td:nth-child(8) input{
+    width: 90px;
+    height: 20px;
+    margin: 0;
+  }
+  table tr td:nth-child(9){
+    width: 60px;
+  }
+  table tr td:nth-child(9) span{
+    color: blueviolet;
+    cursor: pointer;
+  }
+  table tr td:nth-child(9) span:hover{
+    color: red;
+  }
+  #list-body button{
+    background-color: white;
+    border: 0;
+    cursor: pointer;
+    margin: 5px 0 0 0;
+    color: #0DB3A6;
+    font-size: 14px;
+  }
+  #list-body button:hover{
+    color: black;
+  }
+  textarea{
+    display: block;
+    min-width: 600px;
+    min-height: 100px;
+  }
