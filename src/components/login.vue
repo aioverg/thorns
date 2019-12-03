@@ -24,8 +24,24 @@ export default {
       const _this = this;
       _this.axios.get('/login').then(
         function(res){
-          if(res.status===200&&res.data.admin.name===_this.name&&res.data.admin.password===_this.password){_this.$router.push({ path: '/main' })}
-          else(alert('账号密码错误'))
+          //检错与服务器是否连接成功
+          if(res.status===200){
+            //检测账号是否存在
+            try {
+              res.data[_this.name].name
+            }
+            catch(err){
+              return alert("账号不存在")
+            }
+            //检测账号的密码是否正确
+            if(res.data[_this.name].name===_this.name&&res.data[_this.name].password===_this.password){
+              _this.$router.push({ path: '/main' })
+            }
+            else{
+              alert("密码错误")
+            }
+          }
+          else(alert("连接服务器失败"))
         }
       )
     }
