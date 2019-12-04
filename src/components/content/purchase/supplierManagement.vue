@@ -14,15 +14,15 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>5555</td>
-              <td>5555</td>
-              <td>5555</td>
-              <td>5555</td>
-              <td>5555</td>
-              <td>5555</td>
-              <td>5555</td>
-              <td></td>
+            <tr v-for="(value, index) in supData" v-bind:key="index">
+              <td>{{index+1}}</td>
+              <td>{{value[0]}}</td>
+              <td>{{value[1]}}</td>
+              <td>{{value[2]}}</td>
+              <td>{{value[3]}}</td>
+              <td>{{value[4]}}</td>
+              <td>{{value[5]}}</td>
+              <td>{{value[6]}}</td>
             </tr>
           </tbody>
         </table>
@@ -36,8 +36,23 @@
 </template>
 
 <script>
+import purchaseApi from '../../../api/purchase'
+
 export default {
-  name: 'supplierManagement'
+  name: 'supplierManagement',
+  data(){
+    return {supData: true}
+  },
+  mounted(){
+    this.supplierAllData()    //当页面加载时执行supplierAllData方法
+  },
+  methods: {
+    supplierAllData: function(){    //获取所有供应商数据
+      purchaseApi.supplierData().then(
+        response => {this.supData=response.data}
+      )
+    }
+  }
 }
 </script>
 
