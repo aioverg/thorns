@@ -136,23 +136,4 @@ li {
   border-bottom: 1px solid #e2e2e2;
   height: 60px;
 }
-#list-head p{
-  margin: 0 0 0 20px;
-  height: 40px;
-  line-height: 40px;
-}
-#list-foot button{
-  height: 34px;
-  width: 118px;
-  float: left;
-  margin: 0 0 0 20px;
-  background-color: #0DB3A6;
-  border: 1px solid #0DB3A6;
-  cursor: pointer;
-  color: #fff;
-}
-#list-foot button:hover{
-  background-color: #0a8d83;
-  border: 1px solid #0a8d83;
-}
 </style>

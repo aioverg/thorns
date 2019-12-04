@@ -30,7 +30,7 @@
     </div>
     </div>
     <div id="list-foot">
-      <p><button>新增</button></p>
+      <p><input><button>查询</button></p>
     </div>
   </div>
 </template>
