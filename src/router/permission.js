@@ -13,6 +13,8 @@ const power={
     main: true,
     purchase: true,
     purchaseRturn: true,
+    addSupplier: true,
+    addCommodity: true,
     sales: true,
     salesReturn: true,
     inventory: true,

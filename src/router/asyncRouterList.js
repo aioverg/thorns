@@ -38,6 +38,16 @@ export const asyncRouterList = [
                 name: 'purchaseRturn',
                 component: () => import('../components/content/purchase/purchaseReturn')  //采购退货
             },
+            addCommodity: {
+                path: '/purchase/addCommodity',
+                name: 'addCommodity',
+                component: () => import('../components/content/purchase/addCommodity')  //新增商品
+            },
+            addSupplier: {
+                path: '/purchase/addSupplier',
+                name: 'addSupplier',
+                component: () => import('../components/content/purchase/addSupplier')  //新增供应商
+            },
             commodityManagement: {
                 path: '/purchase/commodityManagemen',
                 name: 'commodityManagement',
