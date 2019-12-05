@@ -91,9 +91,18 @@ textarea{
   background-color: #0a8d83;
   border: 1px solid #0a8d83;
 }
-#list-foot input{
+#list-foot #search{ /*底栏搜索输入框样式*/
   margin: 0 0 0 20px;
   width: 200px;
   height: 27px;
   float: left;
+}
+#list-foot #page{ /*底栏页面输入框样式*/
+  width: 50px;
+  text-align: center;
+}
+#list-foot span{
+  display: inline-block;
+  height: 27px;
+  margin: 0 5px;
 }
