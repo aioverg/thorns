@@ -32,7 +32,7 @@
     <div id="list-foot">
       <p>
         <!--@keyup.enter="query"实现输入搜索内容后点击回车键提交搜索-->
-        <input v-model="queryValue" @keyup.enter="query" id="search">
+        <input v-model="queryParam.queryValue" @keyup.enter="query" id="search">
         <!--v-on:click="query"实现输入搜索内容后点查询按钮提交搜索-->
         <button v-on:click="query">查询</button>
         <span>
@@ -56,13 +56,13 @@ export default {
   name: 'supplierManagement',
   data(){
     return {
-      supData: true,//列表数据
-      queryValue: null,//查询输入的数据
+      supData: Array,//列表数据
       page:5,//总共有多少页数据，每15条算一页
       queryParam:{    //axios请求发送的数据
         page: 1,  //请求的页面
         size: 6,  //每页的数据量
-        allPage:2
+        allPage:2,
+        queryValue: null, //查询输入的数据
       }
     }
   },
@@ -92,28 +92,15 @@ export default {
       else(alert("第一页"))
     },
 
-    query: function(){alert(555)}
-/*    query: function(){    //搜索函数，循环遍历每个数组中的元素。
-      const _this=this
-      purchaseApi.supplierData().then(
-        function(response){
-          _this.supData=[]
-          for(var i in response.data){
-            for(var j in response.data[i]){
-              if(_this.queryValue==response.data[i][j]){
-                _this.supData.push(response.data[i]),
-                _this.page=Math.ceil(_this.supData.length/15)
-              }
-            } 
-          }
-          if(_this.supData.length==0){
-            alert("没有找到")
-            _this.supData=response.data
-          }
-        }
-      )
-    },
-*/
+    query: function(){    //搜索功能
+      if(this.queryParam.queryValue){
+        this.queryParam.page=1
+        this.supplierData()
+      }
+      if(!this.queryParam.queryValue){
+        this.supplierData()
+      }
+    }
   }
 }
 </script>
