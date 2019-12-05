@@ -36,9 +36,13 @@
         <!--v-on:click="query"实现输入搜索内容后点查询按钮提交搜索-->
         <button v-on:click="query">查询</button>
         <span>
-          <span>上一页</span>
-          <span>第</span><span><input v-model="nowPage" id="page"></span><span>页</span>
-          <span>下一页</span>
+          <span v-on:click="down">上一页</span>
+          <span>第</span>
+          <span>
+            <input v-model="queryParam.page" v-on:keyup.enter="supplierData" id="page">
+          </span>
+          <span>页</span>
+          <span v-on:click="up">下一页</span>
           <span>共<span>{{page}}</span>页</span>
         </span>
       </p>
@@ -54,24 +58,42 @@ export default {
     return {
       supData: true,//列表数据
       queryValue: null,//查询输入的数据
-      page:true,//总共有多少页数据，每15条算一页
-      nowPage: 2, //当前页面数
+      page:5,//总共有多少页数据，每15条算一页
+      queryParam:{    //axios请求发送的数据
+        page: 1,  //请求的页面
+        size: 6,  //每页的数据量
+        allPage:2
+      }
     }
   },
   mounted(){
-    this.supplierAllData()    //当页面加载时执行supplierAllData方法
+    this.supplierData()    //当页面加载时执行supplierAllData方法
   },
   methods: {
-    supplierAllData: function(){    //获取所有供应商数据
-      purchaseApi.supplierData().then(
+    supplierData: function(){    //获取供应商数据
+      purchaseApi.supplierData(this.queryParam).then(
         response => {
-          this.supData=response.data,
-          this.page=Math.ceil(response.data.length/15)
+          this.supData=response.data
         }
       )
     },
+    up: function(){    //向前翻页
+      if(this.queryParam.page<this.page){
+        this.queryParam.page++
+        this.supplierData()
+      }
+      else(alert("最后一页"))
+    },
+    down: function(){    //向后翻页
+      if(this.queryParam.page>1){
+        this.queryParam.page--
+        this.supplierData()
+      }
+      else(alert("第一页"))
+    },
 
-    query: function(){    //搜索函数，循环遍历每个数组中的元素。
+    query: function(){alert(555)}
+/*    query: function(){    //搜索函数，循环遍历每个数组中的元素。
       const _this=this
       purchaseApi.supplierData().then(
         function(response){
@@ -91,7 +113,7 @@ export default {
         }
       )
     },
-
+*/
   }
 }
 </script>
