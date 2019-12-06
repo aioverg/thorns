@@ -11,4 +11,13 @@ purchaseApi.supplierData= data => {
     })
 }
 
+//新增供应商数据接口
+purchaseApi.addSupplier= data => {
+    return service({
+        url: '/addSupplier',
+        data: data,
+        method: "post"
+    })
+}
+
 export default purchaseApi

@@ -76,6 +76,7 @@ textarea{
   display: block;
   min-width: 600px;
   min-height: 100px;
+  margin: 5px 0 0 0;
 }
 #list-foot button{
   height: 34px;
