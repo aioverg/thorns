@@ -1,6 +1,6 @@
 //供应商部分模拟数据，数组中的数据依次是：[名称, 负责人, 电话, 手机, 邮箱, 地址, 备注]
 function supplierList(option){
-    const data=[
+    const data=[  //所有数据集合
         ["中值公司", "张三", "111111", "0000000000000", "000000000@00", "A-00,A-00", "000000"],
         ["极限公司", "李四", "111111", "0000000000000", "000000000@00", "A-00,A-00", "000000"],
         ["中心公司", "王五", "222222", "0000000000000", "000000000@00", "A-00,A-00", "000000"],
@@ -30,9 +30,9 @@ function supplierList(option){
         ["德克公司", "亚娜", "222222", "0000000000000", "000000000@00", "A-00,A-00", "000000"],
         ["务普公司", "刺客", "333333", "0000000000000", "000000000@00", "A-00,A-00", "000000"],
     ]
-    const query=[]
-    const body=JSON.parse(option.body)
-    if(body.queryValue){
+    const query=[]  //存放查询结果的数据集合
+    const body=JSON.parse(option.body)  //将接受的数据转换为对象
+    if(body.queryValue){  //如果查询数据，就返回查询结果数组
         for(var i in data){
             for(var j in data){
                 if(body.queryValue==data[i][j]){
@@ -40,9 +40,12 @@ function supplierList(option){
                 }
             }
         }
-        return query.slice(body.size*(body.page-1),body.size*body.page)
+        return [query.slice(body.size*(body.page-1),body.size*body.page), query.length]
+        //返回的数组中array[0]是本次查询的数据，array[1]是所有符合条件的数据条数。
     }
-    if(!body.queryValue){return data.slice(body.size*(body.page-1),body.size*body.page)}
+    if(!body.queryValue){  //如果不是查询数据就返回所有数据
+        return [data.slice(body.size*(body.page-1),body.size*body.page), data.length]
+    }
 }
 
 export default supplierList
