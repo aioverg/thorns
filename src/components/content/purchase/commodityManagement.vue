@@ -2,7 +2,7 @@
 
 <template>
   <div>
-    <div id="list-head"><p>>> 供应商管理</p></div>
+    <div id="list-head"><p>>> 商品管理</p></div>
     <div id="list-body">
       <div style="margin: 0 20px 30px 20px;">
       <div>
@@ -14,13 +14,13 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
+            <tr v-for="(value, index) in supData" v-bind:key="index">
+              <td>{{index+1}}</td>
+              <td>{{value[0]}}</td>
+              <td>{{value[1]}}</td>
+              <td>{{value[2]}}</td>
+              <td>{{value[3]}}</td>
+              <td>{{value[4]}}</td>
             </tr>
           </tbody>
         </table>
@@ -30,18 +30,18 @@
     <div id="list-foot">
       <p>
         <!--@keyup.enter="query"实现输入搜索内容后点击回车键提交搜索-->
-        <input id="search">
+        <input id="search" v-model="queryData.queryValue" v-on:keyup.enter="query">
         <!--v-on:click="query"实现输入搜索内容后点查询按钮提交搜索-->
-        <button>查询</button>
+        <button v-on:click="query">查询</button>
         <span>
-          <span>上一页</span>
+          <span v-on:click="font">上一页</span>
           <span>第</span>
           <span>
-            <input>
+            <input v-model="queryData.page" id="page">
           </span>
           <span>页</span>
-          <span>下一页</span>
-          <span>共<span></span>页</span>
+          <span v-on:click="next">下一页</span>
+          <span>共<span>{{queryData.allPage}}</span>页</span>
         </span>
       </p>
     </div>
@@ -49,57 +49,57 @@
 </template>
 
 <script>
+import purchaseApi from '../../../api/purchase'
 export default {
   name: 'commodityManagement',
-/*  data(){
+  data(){
     return {
       supData: Array,//列表数据
-      queryParam:{    //axios请求发送的数据
-        page: 1,  //请求的页面
+      queryData:{    //axios请求发送的数据
+        page: 1,  //请求的页面（也是当前页面）
         size: 6,  //每页的数据量
-        allPage: 5,  //总共有多少页数据，每15条算一页
+        allPage: null,  //总共有多少页数据，每15条算一页
         queryValue: null, //查询输入的数据
       }
     }
   },
   mounted(){
-    this.supplierData()    //当页面加载时执行supplierAllData方法
+    this.commodityData()    //当页面加载时执行supplierAllData方法
   },
   methods: {
-    supplierData: function(){    //获取供应商数据
-      purchaseApi.supplierData(this.queryParam).then(
+    commodityData: function(){    //获取供应商数据
+      purchaseApi.commodityData(this.queryData).then(
         response => {
           this.supData=response.data[0]  //获取本次查询的数据
-          this.queryParam.allPage=Math.ceil(response.data[1]/this.queryParam.size)  //获取服务器中所有符合条件的数据条数，并计算出页数。
+          this.queryData.allPage=Math.ceil(response.data[1]/this.queryData.size)  //获取服务器中所有符合条件的数据条数，并计算出页数。
         }
       )
     },
-    up: function(){    //向前翻页
-      if(this.queryParam.page<this.queryParam.allPage){
-        this.queryParam.page++
-        this.supplierData()
+    next: function(){    //下一页
+      if(this.queryData.page<this.queryData.allPage){
+        this.queryData.page++
+        this.commodityData()
       }
       else(alert("最后一页"))
     },
-    down: function(){    //向后翻页
-      if(this.queryParam.page>1){
-        this.queryParam.page--
-        this.supplierData()
+    font: function(){    //上一页
+      if(this.queryData.page>1){
+        this.queryData.page--
+        this.commodityData()
       }
       else(alert("第一页"))
     },
 
     query: function(){    //搜索功能
-      if(this.queryParam.queryValue){
-        this.queryParam.page=1
-        this.supplierData()
+      if(this.queryData.queryValue){
+        this.queryData.page=1
+        this.commodityData()
       }
-      if(!this.queryParam.queryValue){
-        this.supplierData()
+      if(!this.queryData.queryValue){
+        this.commodityData()
       }
     }
   }
-*/
 }
 
 </script>

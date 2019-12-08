@@ -30,7 +30,7 @@ const data=[  //所有数据集合
     ["务普公司", "刺客", "333333", "0000000000000", "000000000@00", "A-00,A-00", "000000"],
 ]
 
-//供应商管理数据返回函数
+//供应商管理数据查询返回函数
 function querySupplierData(option){
     const query=[]  //存放查询结果的数据集合
     const body=JSON.parse(option.body)  //将接受的数据转换为对象

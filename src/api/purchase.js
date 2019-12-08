@@ -10,7 +10,6 @@ purchaseApi.supplierData= data => {
         method: 'get'  //请求方法
     })
 }
-
 //新增供应商数据接口
 purchaseApi.addSupplier= data => {
     return service({
@@ -20,4 +19,21 @@ purchaseApi.addSupplier= data => {
     })
 }
 
+
+//读取商品数据接口
+purchaseApi.commodityData= data =>{
+    return service({
+        url: '/commodityManagemen',
+        data: data,
+        method: "get"
+    })
+}
+//新增商品数据接口
+purchaseApi.addCommodity= data =>{
+    return service({
+        url: '/addCommodity',
+        data: data,
+        method: 'post'
+    })
+}
 export default purchaseApi

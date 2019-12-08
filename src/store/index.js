@@ -44,7 +44,7 @@ const store = new Vuex.Store({
             link: "/purchase/addCommodity"
           },
           {
-            title: "商品列表",
+            title: "商品管理",
             link: "/purchase/commodityManagemen"
           },
           {

@@ -2,6 +2,7 @@
 import Mock from 'mockjs'
 import user from './json/user'
 import {querySupplierData, addSupplierData}  from './json/supplierData'
+import {queryCommodutyData, addCommodityData} from './json/commodityData'
 
 //设置数据响应延迟
 Mock.setup({
@@ -16,3 +17,8 @@ Mock.mock('/login', user)
 Mock.mock('/suppliermanagement', querySupplierData)
 //新增供应商数据
 Mock.mock('/addSupplier', 'post', addSupplierData)
+
+//供应商列表数据
+Mock.mock('/commodityManagemen', queryCommodutyData)
+//新增商品数据
+Mock.mock('/addCommodity', 'post', addCommodityData)
