@@ -20,9 +20,9 @@ const data=[
 
 //商品列表查询返回数据函数
 function queryCommodutyData(option){
-    const query=[]  //存放查询结果的数据集合
-    const body=JSON.parse(option.body)  //将接受的数据转换为对象
-    if(body.queryValue){  //如果查询数据，就返回查询结果数组
+    const query=[]
+    const body=JSON.parse(option.body)
+    if(body.queryValue){
         for(var i in data){
             for(var j in data){
                 if(body.queryValue==data[i][j]){
@@ -31,9 +31,8 @@ function queryCommodutyData(option){
             }
         }
         return [query.slice(body.size*(body.page-1),body.size*body.page), query.length]
-        //返回的数组中array[0]是本次查询的数据，array[1]是所有符合条件的数据条数。
     }
-    if(!body.queryValue){  //如果不是查询数据就返回所有数据
+    if(!body.queryValue){
         return [data.slice(body.size*(body.page-1),body.size*body.page), data.length]
     }
 }

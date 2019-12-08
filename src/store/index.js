@@ -89,7 +89,7 @@ const store = new Vuex.Store({
           },
           {
             title: "新增仓库",
-            link: "/warehouse/newWarehouse"
+            link: "/warehouse/addWarehouse"
           },
           {
             title: "仓库管理",

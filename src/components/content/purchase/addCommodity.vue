@@ -53,8 +53,6 @@ export default {
     addCommodity: function(){
       const _this=this
       if(this.addData.name==null){return alert("用户名必填")}  //检查用户名是否为空
-      //if(this.newCommodity.phone==null){return alert("手机号码必填")}  //检查电话号码是否为空
-      //if(this.newCommodity.phone.length != 11){return alert("手机号码位数不正确")}  //检查电话号码位数是否正确
       purchaseApi.addCommodity(this.addData).then(
         function(res){
           if(res.status==200){

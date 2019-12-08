@@ -36,4 +36,21 @@ purchaseApi.addCommodity= data =>{
         method: 'post'
     })
 }
+
+//读取仓库数据接口
+purchaseApi.commodityData= data =>{
+    return service({
+        url: '/warehousemanagement',
+        data: data,
+        method: "get"
+    })
+}
+//新增仓库数据接口
+purchaseApi.addCommodity= data =>{
+    return service({
+        url: '/addWarehouse',
+        data: data,
+        method: 'post'
+    })
+}
 export default purchaseApi

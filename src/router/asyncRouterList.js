@@ -83,10 +83,10 @@ export const asyncRouterList = [
                 name: 'inventory',
                 component: () => import('../components/content/warehouse/inventory')  //库存盘点
             },
-            newWarehouse: {
-                path: '/warehouse/newWarehouse',
-                name: 'newWarehouse',
-                component: () => import('../components/content/warehouse/newWarehouse')  //新增仓库
+            addWarehouse: {
+                path: '/warehouse/addWarehouse',
+                name: 'addWarehouse',
+                component: () => import('../components/content/warehouse/addWarehouse')  //新增仓库
             },
             warehouseManagement: {
                 path: '/warehouse/warehousemanagement',

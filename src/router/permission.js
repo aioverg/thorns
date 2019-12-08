@@ -18,7 +18,7 @@ const power={
     sales: true,
     salesReturn: true,
     inventory: true,
-    newWarehouse: true,
+    addWarehouse: true,
     contrast: true,
     procurementStatistics: true,
     salesStatistics: true,
