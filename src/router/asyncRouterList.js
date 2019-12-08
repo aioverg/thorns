@@ -71,6 +71,11 @@ export const asyncRouterList = [
                 name: 'salesReturn',
                 component: () => import('../components/content/sales/salesReturn')  //销售退货
             },
+            addCustomer: {
+                path: '/sales/addCustomer',
+                name: 'addCustomer',
+                component: () => import('../components/content/sales/addCustomer')
+            },
             customerManagement: {
                 path: '/sales/customermanagement',
                 name: 'customerManagement',

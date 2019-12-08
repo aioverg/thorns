@@ -72,6 +72,10 @@ const store = new Vuex.Store({
             link: "/sales/salesReturn"
           },
           {
+            title: "新增客户",
+            link: "/sales/addCustomer"
+          },
+          {
             title: "客户管理",
             link: "/sales/customermanagement"
           }

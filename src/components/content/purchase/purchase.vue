@@ -27,7 +27,7 @@
             </thead>
             <tbody>
               <tr v-for="(value,index) in todos" v-bind:key="index" v-bind:index="index">
-                <td>{{index}}</td>
+                <td>{{index+1}}</td>
                 <td></td>
                 <td></td>
                 <td></td>

@@ -23,6 +23,7 @@ const power={
     procurementStatistics: true,
     salesStatistics: true,
     customerCollection: true,
+    addCustomer: true,
     customerReconciliation: true,
     grossProfit: true,
     supplierReconciliation: true,
