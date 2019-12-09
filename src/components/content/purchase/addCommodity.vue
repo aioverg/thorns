@@ -1,4 +1,4 @@
-<!--新增商品组件-->
+<!--新增商品组件，这个页面不在菜单栏中显示-->
 
 <template>
   <div>
@@ -28,7 +28,10 @@
       </div>
     </div>
     <div id="list-foot">
-      <p><button v-on:click="addCommodity">提交</button></p>
+      <p>
+        <button v-on:click="addCommodity">提交</button>
+        <button v-on:click="commodityManagement">返回</button>
+      </p>
     </div>
   </div>
 </template>
@@ -67,7 +70,13 @@ export default {
           else("连接出错，添加失败")
         }
       )
+    },
+
+    //返回到商品管理页面
+    commodityManagement: function(){
+      this.$router.push({ path: '/purchase/commodityManagemen' })
     }
+    
   }
 }
 </script>

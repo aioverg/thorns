@@ -35,6 +35,7 @@
         <input v-model="queryData.queryValue" @keyup.enter="query" id="search">
         <!--v-on:click="query"实现输入搜索内容后点查询按钮提交搜索-->
         <button v-on:click="query">查询</button>
+        <button v-on:click="addCustomer">新增</button>
         <span>
           <span v-on:click="down">上一页</span>
           <span>第</span>
@@ -100,6 +101,11 @@ export default {
       if(!this.queryData.queryValue){
         this.customerData()
       }
+    },
+
+    //跳转到新增客户页面
+    addCustomer: function(){
+      this.$router.push({ path:'/sales/addCustomer' })
     }
   }
 }

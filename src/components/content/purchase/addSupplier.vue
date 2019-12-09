@@ -1,4 +1,4 @@
-<!--新增供应商组件-->
+<!--新增供应商组件，这个页面不在菜单栏中显示-->
 
 <template>
   <div>
@@ -33,7 +33,10 @@
       </div>
     </div>
     <div id="list-foot">
-      <p><button v-on:click="addSupplier">提交</button></p>
+      <p>
+        <button v-on:click="addSupplier">提交</button>
+        <button v-on:click="supplierManagement">返回</button>
+      </p>
     </div>
   </div>
 </template>
@@ -76,6 +79,11 @@ export default {
           else("连接出错，添加失败")
         }
       )
+    },
+
+    //返回到供应商管理页面
+    supplierManagement: function(){
+      this.$router.push({ path: '/purchase/suppliermanagement' })
     }
   }
 }

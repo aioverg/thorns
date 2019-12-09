@@ -41,7 +41,8 @@ const store = new Vuex.Store({
           },
           {
             title: "新增商品",
-            link: "/purchase/addCommodity"
+            link: "/purchase/addCommodity",
+            display: "display: none"  //不显示的菜单栏
           },
           {
             title: "商品管理",
@@ -49,7 +50,8 @@ const store = new Vuex.Store({
           },
           {
             title: "新增供应商",
-            link: "/purchase/addSupplier"
+            link: "/purchase/addSupplier",
+            display: "display: none"  //不显示的菜单栏
           },
           {
             title: "供应商管理",
@@ -73,7 +75,8 @@ const store = new Vuex.Store({
           },
           {
             title: "新增客户",
-            link: "/sales/addCustomer"
+            link: "/sales/addCustomer",
+            display: "display: none"  //不显示的菜单栏
           },
           {
             title: "客户管理",
@@ -93,7 +96,8 @@ const store = new Vuex.Store({
           },
           {
             title: "新增仓库",
-            link: "/warehouse/addWarehouse"
+            link: "/warehouse/addWarehouse",
+            display: "display: none", //不显示的菜单栏
           },
           {
             title: "仓库管理",

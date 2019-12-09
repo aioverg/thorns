@@ -33,7 +33,10 @@
       </div>
     </div>
     <div id="list-foot">
-      <p><button v-on:click="addCustomer">提交</button></p>
+      <p>
+        <button v-on:click="addCustomer">提交</button>
+        <button v-on:click="customerManagement">返回</button>
+      </p>
     </div>
   </div>
 </template>
@@ -76,6 +79,11 @@ export default {
           else("连接出错，添加失败")
         }
       )
+    },
+
+    //跳转到客户管理页面
+    customerManagement: function(){
+      this.$router.push({ path: '/sales/customermanagement' })
     }
   }
 }

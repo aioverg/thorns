@@ -12,12 +12,12 @@
               <!--如果目录有子目录就绑定click事件，且菜单不作为路由-->
               <span v-if="one.children" v-on:click="up">{{one.title}}</span>
               <!--如果没有子目录就不绑定click事件，菜单作为路由-->
-              <router-link v-bind:to="one.link" a v-else tag="span">{{one.title}}</router-link>
+              <router-link v-else v-bind:to="one.link" tag="span">{{one.title}}</router-link>
             <ul style="display: none;">
               <!--如果有子目录则循环渲染出子目录-->
               <template v-if="one.children">
               <li v-for="(two, idtwo) in one.children" v-bind:key="idtwo">
-                <router-link v-bind:to="two.link" tag="span" class="menu-child">{{two.title}}</router-link>
+                <router-link v-bind:to="two.link" v-bind:style="two.display" tag="span" class="menu-child">{{two.title}}</router-link>
               </li>
               </template>
             </ul>

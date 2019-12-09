@@ -25,7 +25,10 @@
       </div>
     </div>
     <div id="list-foot">
-      <p><button v-on:click="addWarehouse">提交</button></p>
+      <p>
+        <button v-on:click="addWarehouse">提交</button>
+        <button v-on:click="warehouseManagement">返回</button>
+      </p>
     </div>
   </div>
 </template>
@@ -61,6 +64,11 @@ export default {
           else("连接出错，添加失败")
         }
       )
+    },
+
+    //跳转到仓库管理页面
+    warehouseManagement: function(){
+      this.$router.push({ path: '/warehouse/warehousemanagement' })
     }
   }
 }

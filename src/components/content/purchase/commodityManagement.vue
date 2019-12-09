@@ -33,6 +33,7 @@
         <input id="search" v-model="queryData.queryValue" v-on:keyup.enter="query">
         <!--v-on:click="query"实现输入搜索内容后点查询按钮提交搜索-->
         <button v-on:click="query">查询</button>
+        <button v-on:click="addCommodity">新增</button>
         <span>
           <span v-on:click="font">上一页</span>
           <span>第</span>
@@ -98,6 +99,11 @@ export default {
       if(!this.queryData.queryValue){
         this.commodityData()
       }
+    },
+
+    //跳转到新增商品页面
+    addCommodity: function(){
+      this.$router.push({ path: '/purchase/addCommodity' })
     }
   }
 }
