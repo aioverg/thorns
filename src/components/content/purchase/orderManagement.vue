@@ -10,17 +10,18 @@
         <table>
           <thead>
             <tr>
-              <td>序号</td><td>供应商</td><td>仓库</td><td>采购时间</td><td>采购员</td><td>采购单总价</td>
+              <td>序号</td><td>供应商</td><td>仓库</td><td>采购时间</td><td>采购员</td><td>采购单总价</td><td></td>
             </tr>
           </thead>
           <tbody>
             <tr v-for="(value, index) in supData" v-bind:key="index">
               <td>{{index+1}}</td>
-              <td>{{value[0]}}</td>
               <td>{{value[1]}}</td>
               <td>{{value[2]}}</td>
               <td>{{value[3]}}</td>
-              <td>{{value[5]}}</td>
+              <td>{{value[4]}}</td>
+              <td>{{value[6]}}</td>
+              <td><a v-bind:data-id="value[0]">详情</a></td>
             </tr>
           </tbody>
         </table>

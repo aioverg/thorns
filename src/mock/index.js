@@ -1,10 +1,10 @@
 //引入mock
 import Mock from 'mockjs'
 import user from './json/user'
-import {querySupplierData, addSupplierData}  from './json/supplierData'
-import {queryCommodutyData, addCommodityData} from './json/commodityData'
-import {queryWarehouseData, addWarehouseData} from './json/warehouseData'
-import {queryCustomerData, addCustomerData} from './json/customerData'
+import {querySupplierData, addSupplierData}  from './json/supplierData'  //供应商数据
+import {queryCommodutyData, addCommodityData} from './json/commodityData'  //商品数据
+import {queryWarehouseData, addWarehouseData} from './json/warehouseData'  //仓库数据
+import {queryCustomerData, addCustomerData} from './json/customerData'  //客户数据
 import {queryOrderData} from './json/orderData'
 //设置数据响应延迟
 Mock.setup({
@@ -21,7 +21,7 @@ Mock.mock('/suppliermanagement', querySupplierData)
 Mock.mock('/addSupplier', 'post', addSupplierData)
 
 
-//供应商列表数据
+//商品管理数据
 Mock.mock('/commodityManagemen', queryCommodutyData)
 //新增商品数据
 Mock.mock('/addCommodity', 'post', addCommodityData)
