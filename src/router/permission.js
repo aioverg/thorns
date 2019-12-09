@@ -13,6 +13,7 @@ const power={
     main: true,
     purchase: true,
     purchaseRturn: true,
+    orderManagement: true,
     addSupplier: true,
     addCommodity: true,
     sales: true,

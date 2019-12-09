@@ -37,6 +37,15 @@ purchaseApi.addCommodity= data =>{
     })
 }
 
+//读取订单数据接口
+purchaseApi.orderData = data => {
+    return service({
+        url: '/purchaseOrder',
+        data: data,
+        method: 'get'
+    })
+}
+
 //读取仓库数据接口
 purchaseApi.commodityData= data =>{
     return service({

@@ -38,6 +38,11 @@ export const asyncRouterList = [
                 name: 'purchaseRturn',
                 component: () => import('../components/content/purchase/purchaseReturn')  //采购退货
             },
+            orderManagement: {
+                path: '/purchase/orderManagement',
+                name: 'orderManagement',
+                component: () => import('../components/content/purchase/orderManagement')  //采购订单
+            },
             addCommodity: {
                 path: '/purchase/addCommodity',
                 name: 'addCommodity',

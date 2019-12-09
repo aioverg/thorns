@@ -40,6 +40,10 @@ const store = new Vuex.Store({
             link: "/purchase/purchaseReturn"
           },
           {
+            title: "订单管理",
+            link: "/purchase/orderManagement"
+          },
+          {
             title: "新增商品",
             link: "/purchase/addCommodity",
             display: "display: none"  //不显示的菜单栏
