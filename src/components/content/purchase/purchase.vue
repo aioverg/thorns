@@ -7,7 +7,10 @@
       <div style="margin: 0 20px 30px 20px;">
         <div>
           <p>供应商 *</p>
-          <input />
+          <input onfocus="blur()" v-on:focus="alert" v-bind:value="value"/>
+          <div style="position: fixed" v-show="show">
+            <input ref="input"/>
+          </div>
         </div>
         <div>
           <p>仓库 *</p>
@@ -67,7 +70,11 @@
 export default {
   name: "purchase",
   data() {
-    return { todos: [] };
+    return { 
+      todos: [],
+      value: null,
+      show: true,
+      };
   },
   methods: {
     addNewTodo: function() {
@@ -75,7 +82,19 @@ export default {
     },
     del: function(index) {
       this.todos.splice(index, 1);
-    }
+    },
+
+    alert: function(el){
+      this.value="55555"
+      this.show=!this.show
+      const a=el.path[1].getElementsByTagName("div")[0].getElementsByTagName("input")[0]
+      console.log(a)
+      console.log(this.$refs)
+      
+      this.$nextTick(
+        function(){this.$refs.input.focus()}
+      )
+    },
   }
 };
 </script>
