@@ -5,28 +5,52 @@
     <div id="list-head"><p>>> 订单管理</p></div>
     <div id="list-body">
       <div style="margin: 0 20px 30px 20px;">
-      <div>
-        <p>商品列表</p>
-        <table>
-          <thead>
-            <tr>
-              <td>序号</td><td>供应商</td><td>仓库</td><td>采购时间</td><td>采购员</td><td>采购单总价</td><td></td>
-            </tr>
-          </thead>
-          <tbody>
-            <tr v-for="(value, index) in supData" v-bind:key="index">
-              <td>{{index+1}}</td>
-              <td>{{value[1]}}</td>
-              <td>{{value[2]}}</td>
-              <td>{{value[3]}}</td>
-              <td>{{value[4]}}</td>
-              <td>{{value[6]}}</td>
-              <td><a v-bind:data-id="value[0]">详情</a></td>
-            </tr>
-          </tbody>
-        </table>
+        <div>
+          <p>订单列表</p>
+          <table>
+            <thead>
+              <tr>
+                <td>序号</td><td>ID</td><td>供应商</td><td>仓库</td><td>采购时间</td><td>采购员</td><td>采购单总价</td><td>支付金额</td><td></td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="(value, index) in supData" v-bind:key="index">
+                <td>{{index+1}}</td>
+                <td>{{value[0]}}</td>
+                <td>{{value[1]}}</td>
+                <td>{{value[2]}}</td>
+                <td>{{value[3]}}</td>
+                <td>{{value[4]}}</td>
+                <td>{{value[6]}}</td>
+                <td>{{value[7]}}</td>
+                <td><a v-on:click="details(value[0])">详情</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div>
+          <P>{{id}}</P>
+          <table v-if="!show">
+            <thead>
+              <tr>
+                <td>序号</td><td>商品</td><td>编号</td><td>单位</td><td>系统采购价</td><td>实际采购价</td><td>库存</td><td>采购数量</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="(value, index) in detailsData" v-bind:key="index">
+                <td>{{index+1}}</td>
+                <td>{{value[0]}}</td>
+                <td>{{value[1]}}</td>
+                <td>{{value[2]}}</td>
+                <td>{{value[3]}}</td>
+                <td>{{value[4]}}</td>
+                <td>{{value[5]}}</td>
+                <td>{{value[6]}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
-    </div>
     </div>
     <div id="list-foot">
       <p>
@@ -55,15 +79,23 @@ export default {
   name: 'orderManagement',
   data(){
     return {
-      supData: Array,//列表数据
+      supData: Array,  //订单列表数据
+      detailsData: Array,  //订单详情数据
       queryData:{    //axios请求发送的数据
         page: 1,  //请求的页面（也是当前页面）
         size: 6,  //每页的数据量
         allPage: null,  //总共有多少页数据，每15条算一页
         queryValue: null, //查询输入的数据
-      }
+      },
+      dataid: null,
+      show: "false",
+      id: "订单详情",
     }
   },
+  created: function(){
+    this.bb=this.aa
+  },
+  props:[],
   mounted(){
     this.orderData()    //当页面加载时执行supplierAllData方法
   },
@@ -99,6 +131,19 @@ export default {
       if(!this.queryData.queryValue){
         this.orderData()
       }
+    },
+
+    details: function(aa){  //获取订单详情数据
+      this.show=!this.show
+      if(this.show){this.id="订单详情"}
+      if(!this.show){this.id="id："+aa}
+      this.queryData.id=aa
+      purchaseApi.orderDetailsData(aa).then(
+        response => {
+          this.detailsData=response.data[0]
+        }
+      )
+      
     }
   }
 }

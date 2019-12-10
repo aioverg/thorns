@@ -45,4 +45,12 @@ purchaseApi.orderData = data => {
         method: 'get'
     })
 }
+
+purchaseApi.orderDetailsData = data =>{
+    return service({
+        url: '/purchaseOrderDetails',
+        data: data,
+        method: 'get'
+    })
+}
 export default purchaseApi
