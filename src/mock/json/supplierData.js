@@ -43,4 +43,19 @@ function addSupplierData(option){
     }
     data.unshift(arr)
 }
-export {querySupplierData, addSupplierData}
+
+//返回供应商名称数据
+function querySupplierName(option){
+    const query=[]
+    for(var i in data){
+        if(option.body==data[i][0]){
+            query.push(data[i][0])
+        }
+    }
+    if(query.length==0){
+        query.push("没有找到此供应商")
+        return query
+    }
+    else{return query}
+}
+export {querySupplierData, addSupplierData, querySupplierName}

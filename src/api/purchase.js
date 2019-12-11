@@ -45,10 +45,18 @@ purchaseApi.orderData = data => {
         method: 'get'
     })
 }
-
+//订单详情数据接口
 purchaseApi.orderDetailsData = data =>{
     return service({
         url: '/purchaseOrderDetails',
+        data: data,
+        method: 'get'
+    })
+}
+//搜索供应商数据接口
+purchaseApi.querySupplierName = data =>{
+    return service({
+        url: '/querySupplierName',
         data: data,
         method: 'get'
     })
