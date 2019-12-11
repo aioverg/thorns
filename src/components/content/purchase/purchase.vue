@@ -17,11 +17,11 @@
         </div>
         <div>
           <p>仓库 *</p>
-          <input onfocus="blur()" v-on:click="warehouseBox" v-bind:value="value" />
+          <input onfocus="blur()" v-on:click="warehouseBox" v-bind:value="warehouseValue" />
           <div class="supplier" v-show="!showWarehouse">
             <input ref="warehouseinput" v-model="warehouseName" v-on:blur="warehouseHidden" v-on:input="watchwarehouseInput"/>
             <ul>
-              <li v-for="(value, index) in warehouseNameList" v-bind:key="index">{{value}}</li>
+              <li v-for="(value, index) in warehouseNameList" v-bind:key="index" v-on:click="warehouseSelect(value)">{{value}}</li>
             </ul>
           </div>
         </div>
@@ -83,10 +83,11 @@ export default {
     return { 
       todos: [],
       supplierValue: null,
-      value: null,
       showSupplier: true,
       supplierName: null,
       supplierNameList: null,
+
+      warehouseValue: null,
       showWarehouse: true,
       warehouseName: null,
       warehouseNameList: null
@@ -141,6 +142,9 @@ export default {
           console.log(typeof response.data)
         }
       )
+    },
+    warehouseSelect: function(value){
+      this.warehouseValue=value
     },
     
     
