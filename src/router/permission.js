@@ -5,7 +5,7 @@ import {asyncRouterList} from './asyncRouterList'
 const newRouterList = [{
     path: '/main',
     name: 'main',
-    component: () => import('../components/main'),  //主页面组件
+    component: () => import('../views/main'),  //主页面组件
     children: []
 }]
 //权限数据

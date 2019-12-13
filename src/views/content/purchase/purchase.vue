@@ -40,7 +40,7 @@
             <tbody>
               <tr v-for="(value,index) in todos" v-bind:key="index" v-bind:index="index">
                 <td>{{index+1}}</td>
-                <td></td>
+                <td><input v-on:blur="queryPurchase(valu)" v-model="valu" /></td>
                 <td></td>
                 <td></td>
                 <td></td>
@@ -90,7 +90,9 @@ export default {
       warehouseValue: null,
       showWarehouse: true,
       warehouseName: null,
-      warehouseNameList: null
+      warehouseNameList: null,
+
+      purchaseValue: null
       };
   },
   methods: {
@@ -147,7 +149,9 @@ export default {
       this.warehouseValue=value
     },
     
-    
+    queryPurchase: function(value){
+      console.log(value)
+    }
   }
 };
 </script>

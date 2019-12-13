@@ -8,7 +8,7 @@ export const constantRouter = [
     {  //登录
         path: '/',
         name: 'login',
-        component: () => import('../components/login')  //登录页面组件
+        component: () => import('../views/login')  //登录页面组件
     }
 ]
 
