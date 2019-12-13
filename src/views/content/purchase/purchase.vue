@@ -38,14 +38,14 @@
               </tr>
             </thead>
             <tbody>
-              <tr v-for="(value,index) in todos" v-bind:key="index" v-bind:index="index">
+              <tr v-for="(value,index) in formData" v-bind:key="index" v-bind:index="index">
                 <td>{{index+1}}</td>
-                <td><input v-on:blur="queryPurchase(valu)" v-model="valu" /></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td><input></td>
-                <td></td>
+                <td><input v-model="value.name" v-on:keyup.enter="blurQuery(value)"></td>
+                <td>{{value.id}}</td>
+                <td>{{value.unit}}</td>
+                <td>{{value.systemPrice}}</td>
+                <td><input v-model="value.realPrice"></td>
+                <td>{{value.number}}</td>
                 <td><input></td>
                 <td>
                   <span v-on:click="del(index)">删除</span>
@@ -81,7 +81,7 @@ export default {
   name: "purchase",
   data() {
     return { 
-      todos: [],
+      formData: [],
       supplierValue: null,
       showSupplier: true,
       supplierName: null,
@@ -91,17 +91,26 @@ export default {
       showWarehouse: true,
       warehouseName: null,
       warehouseNameList: null,
-
-      purchaseValue: null
       };
   },
   methods: {
     addNewTodo: function() {
-      this.todos.push(1);
+      this.formData.push({
+        name: null,
+        id: null,
+        unit: null,
+        systemPrice: null,
+        realPrice: null,
+        stock: null,
+        number: null
+      })
     },
     del: function(index) {
-      this.todos.splice(index, 1);
+      this.formData.splice(index, 1);
     },
+
+
+
     supplierBox: function(){
       this.showSupplier=!this.showSupplier
       this.$nextTick(
@@ -151,6 +160,26 @@ export default {
     
     queryPurchase: function(value){
       console.log(value)
+    },
+
+    blurQuery: function(value){
+      purchaseApi.queryCommodityName(value.name).then(
+        response => {
+          if(response.data !==null){
+            value.id=response.data[1],
+            value.unit=response.data[2],
+            value.systemPrice=response.data[3]
+            value.number=response.data[5]
+          }
+          else{
+            value.name="未找到",
+            value.id=null,
+            value.unit=null,
+            value.systemPrice=null,
+            value.number=null
+          }
+        },
+      )
     }
   }
 };

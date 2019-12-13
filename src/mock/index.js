@@ -2,7 +2,7 @@
 import Mock from 'mockjs'
 import user from './json/user'
 import {querySupplierData, addSupplierData, querySupplierName}  from './json/supplierData'  //供应商数据
-import {queryCommodutyData, addCommodityData} from './json/commodityData'  //商品数据
+import {queryCommodutyData, addCommodityData, queryCommodityName} from './json/commodityData'  //商品数据
 import {queryWarehouseData, addWarehouseData} from './json/warehouseData'  //仓库数据
 import {queryCustomerData, addCustomerData} from './json/customerData'  //客户数据
 import {queryOrderData, queryDetails} from './json/orderData'
@@ -31,7 +31,8 @@ Mock.mock('/purchaseOrder', queryOrderData)
 Mock.mock('/purchaseOrderDetails', queryDetails)
 //商品采购页面-搜索供应商数据
 Mock.mock('/querySupplierName', querySupplierName)
-
+//商品采购页面-根据商品名字搜索商品信息
+Mock.mock('/queryCommodityName', queryCommodityName)
 
 
 
