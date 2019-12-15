@@ -5,11 +5,11 @@
     <div id="list-head"><p>>> 商品采购</p></div>
     <div id="list-body">
       <div style="margin: 0 20px 30px 20px;">
-        <query-input title="供应商 *"></query-input>
-        <query-input title="仓库 *"></query-input>
+        <query-input ref="supplierName" title="供应商 *" url="/querySupplierName"></query-input>
+        <query-input ref="warehouse" title="仓库 *" url="/querySupplierName"></query-input>
         <div>
           <p>采购时间 *</p>
-          <input type="date" />
+          <input type="date" v-model="data.purchaseTime" />
         </div>
         <div>
           <p>商品详情</p>
@@ -39,20 +39,20 @@
         </div>
         <div>
           <p>采购单总价</p>
-          <input />
+          <input v-model="data.purchasePrice" />
         </div>
         <div>
           <p>实际支付金额</p>
-          <input />
+          <input v-model="data.payment" />
         </div>
         <div>
           <p>备注</p>
-          <textarea></textarea>
+          <textarea v-model="data.remarks"></textarea>
         </div>
       </div>
     </div>
     <div id="list-foot">
-      <p><button>提交</button></p>
+      <p><button v-on:click="postData">提交</button></p>
     </div>
   </div>
 </template>
@@ -67,7 +67,17 @@ export default {
   },
   data() {
     return { 
-      formData: []
+      formData: [],
+      data:{
+        supplierName: null,
+        warehouse: null,
+        purchaseTime: null,
+        commodityList:[],
+        purchasePrice: null,
+        payment: null,
+        remarks: null,
+        tableData: null
+      }
       };
   },
   methods: {
@@ -85,12 +95,6 @@ export default {
     del: function(index) {
       this.formData.splice(index, 1);
     },
-
-
-
-    
-
-
     blurQuery: function(value){
       purchaseApi.queryCommodityName(value.name).then(
         response => {
@@ -109,6 +113,12 @@ export default {
           }
         },
       )
+    },
+    postData: function(){
+      this.data.supplierName=this.$refs.supplierName.value
+      this.data.warehouse=this.$refs.warehouse.value
+      this.data.tableData=this.formData
+      
     }
   }
 };

@@ -53,7 +53,7 @@ function querySupplierName(option){
         }
     }
     if(query.length==0){
-        query.push("没有找到此供应商")
+        query.push("未找到")
         return query
     }
     else{return query}

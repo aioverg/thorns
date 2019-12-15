@@ -53,14 +53,7 @@ purchaseApi.orderDetailsData = data =>{
         method: 'get'
     })
 }
-//搜索供应商数据接口
-purchaseApi.querySupplierName = data =>{
-    return service({
-        url: '/querySupplierName',
-        data: data,
-        method: 'get'
-    })
-}
+
 //purchase-填入商品名称搜索商品信息
 purchaseApi.queryCommodityName = data =>{
     return service(

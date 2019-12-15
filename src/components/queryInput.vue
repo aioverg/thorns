@@ -2,8 +2,8 @@
   <div>
     <p>{{title}}</p>
     <input onfocus="blur()" v-on:click="showBox" v-bind:value="value" />
-    <div v-show="!show" class="supplier">
-      <input ref="inputFocus" v-on:blur="hiddenBox" v-on:input="watchInput" v-model="inputData" />
+    <div v-show="!show" class="query-input">
+      <input ref="inputFocus" v-on:blur="hiddenBox" v-on:input="watchInput(url, inputData)" v-model="inputData" />
       <ul>
         <li
           v-for="(value, index) in returnData"
@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import purchaseApi from '../api/purchase'
+import service from '../untils/service'
 export default {
   name: "queryInput",
   data: function() {
@@ -28,7 +28,8 @@ export default {
     };
   },
   props: [
-    "title" //标题
+    "title", //标题
+    "url"
   ],
   methods: {
     showBox: function() {
@@ -46,14 +47,22 @@ export default {
       }, 300);
     },
     selectValue: function(value) {
-      if(value=="没有找到此供应商"){this.value = null}
+      if(value=="未找到"){this.value = null}
       else{this.value = value}
+      this.value=value
     },
-    watchInput: function() {
-      //监听输入框，并向后台请求数据
-      purchaseApi.querySupplierName(this.inputData).then(response => {
-        this.returnData = response.data
-      });
+
+    //查询函数
+    watchInput: function(url, data){
+      service(
+        {
+          url: url,
+          data: data,
+          method: 'get'
+        }
+      ).then(
+        response => {this.returnData = response.data}
+      )
     }
   }
 };
@@ -61,15 +70,15 @@ export default {
 
 
 <style>
-.supplier {
+.query-input {
   position: fixed;
 }
-.supplier ul {
+.query-input ul {
   margin: 0;
   padding: 0;
   background-color: white;
 }
-.supplier li {
+.query-input li {
   height: 30px;
   line-height: 30px;
   width: 330px;
