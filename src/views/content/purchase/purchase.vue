@@ -5,26 +5,8 @@
     <div id="list-head"><p>>> 商品采购</p></div>
     <div id="list-body">
       <div style="margin: 0 20px 30px 20px;">
-        <div>
-          <p>供应商 *</p>
-          <input onfocus="blur()" v-on:click="supplierBox" v-bind:value="supplierValue"/>
-          <div class="supplier" v-show="!showSupplier">
-            <input ref="supplierinput" v-model="supplierName" v-on:blur="supplierHidden" v-on:input="watchSupplierInput"/>
-            <ul>
-              <li v-for="(value, index) in supplierNameList" v-bind:key="index" v-on:click="supplierSelect(value)">{{value}}</li>
-            </ul>
-          </div>
-        </div>
-        <div>
-          <p>仓库 *</p>
-          <input onfocus="blur()" v-on:click="warehouseBox" v-bind:value="warehouseValue" />
-          <div class="supplier" v-show="!showWarehouse">
-            <input ref="warehouseinput" v-model="warehouseName" v-on:blur="warehouseHidden" v-on:input="watchwarehouseInput"/>
-            <ul>
-              <li v-for="(value, index) in warehouseNameList" v-bind:key="index" v-on:click="warehouseSelect(value)">{{value}}</li>
-            </ul>
-          </div>
-        </div>
+        <query-input title="供应商 *"></query-input>
+        <query-input title="仓库 *"></query-input>
         <div>
           <p>采购时间 *</p>
           <input type="date" />
@@ -77,20 +59,15 @@
 
 <script>
 import purchaseApi from '../../../api/purchase'
+import queryInput from '../../../components/queryInput'
 export default {
   name: "purchase",
+  components: {
+    "query-input": queryInput
+  },
   data() {
     return { 
-      formData: [],
-      supplierValue: null,
-      showSupplier: true,
-      supplierName: null,
-      supplierNameList: null,
-
-      warehouseValue: null,
-      showWarehouse: true,
-      warehouseName: null,
-      warehouseNameList: null,
+      formData: []
       };
   },
   methods: {
@@ -111,56 +88,8 @@ export default {
 
 
 
-    supplierBox: function(){
-      this.showSupplier=!this.showSupplier
-      this.$nextTick(
-        function(){this.$refs.supplierinput.focus()}
-      )  
-    },
-    supplierHidden: function(){  //当输入框失去焦点时，隐藏起来
-      const _this=this
-      setTimeout(
-        function(){_this.showSupplier=!_this.showSupplier}
-      ,100)
-    },
-    watchSupplierInput: function(){  //监听输入框，并向后台请求数据
-      purchaseApi.querySupplierName(this.supplierName).then(
-        response => {
-          this.supplierNameList = response.data
-        }
-      )
-    },
-    supplierSelect: function(value){
-      this.supplierValue=value
-    },
-
-    warehouseBox: function(){
-      this.showWarehouse=!this.showWarehouse
-      this.$nextTick(
-        function(){this.$refs.warehouseinput.focus()}
-      )  
-    },
-    warehouseHidden: function(){  //当输入框失去焦点时，隐藏起来
-      const _this=this
-      setTimeout(
-        function(){_this.showWarehouse=!_this.showWarehouse}
-      ,100)
-    },
-    watchwarehouseInput: function(){  //监听输入框，并向后台请求数据
-      purchaseApi.querySupplierName(this.warehouseName).then(
-        response => {
-          this.warehouseNameList = response.data
-          console.log(typeof response.data)
-        }
-      )
-    },
-    warehouseSelect: function(value){
-      this.warehouseValue=value
-    },
     
-    queryPurchase: function(value){
-      console.log(value)
-    },
+
 
     blurQuery: function(value){
       purchaseApi.queryCommodityName(value.name).then(
@@ -184,20 +113,3 @@ export default {
   }
 };
 </script>
-
-
-<style>
-.supplier {
-  position: fixed;
-}
-.supplier ul {
-  margin: 0;
-  padding: 0;
-  background-color: white;
-}
-.supplier li {
-  height: 30px;
-  line-height: 30px;
-  width: 330px;
-}
-</style>
