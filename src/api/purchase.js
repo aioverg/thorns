@@ -54,13 +54,24 @@ purchaseApi.orderDetailsData = data =>{
     })
 }
 
-//purchase-填入商品名称搜索商品信息
+//商品采购-填入商品名称搜索商品信息
 purchaseApi.queryCommodityName = data =>{
     return service(
         {
             url: '/queryCommodityName',
             data: data,
             method: 'get'
+        }
+    )
+}
+
+//商品采购-提交订单
+purchaseApi.postPurchaseOrder = data =>{
+    return service(
+        {
+            url: '/postPurchaseOrder',
+            data: data,
+            method: 'post'
         }
     )
 }

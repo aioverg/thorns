@@ -35,7 +35,7 @@
               </tr>
             </tbody>
           </table>
-          <button v-on:click.prevent="addNewTodo">+添加</button>
+          <button v-on:click.prevent="addRow">+添加</button>
         </div>
         <div>
           <p>采购单总价</p>
@@ -72,7 +72,6 @@ export default {
         supplierName: null,
         warehouse: null,
         purchaseTime: null,
-        commodityList:[],
         purchasePrice: null,
         payment: null,
         remarks: null,
@@ -81,7 +80,7 @@ export default {
       };
   },
   methods: {
-    addNewTodo: function() {
+    addRow: function() {
       this.formData.push({
         name: null,
         id: null,
@@ -95,7 +94,7 @@ export default {
     del: function(index) {
       this.formData.splice(index, 1);
     },
-    blurQuery: function(value){
+    commodityQuery: function(value){
       purchaseApi.queryCommodityName(value.name).then(
         response => {
           if(response.data !==null){
@@ -118,7 +117,7 @@ export default {
       this.data.supplierName=this.$refs.supplierName.value
       this.data.warehouse=this.$refs.warehouse.value
       this.data.tableData=this.formData
-      
+      purchaseApi.postPurchaseOrder(this.data).then()
     }
   }
 };

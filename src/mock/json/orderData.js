@@ -127,6 +127,8 @@ function queryOrderData(option){
         return [data.slice(body.size*(body.page-1),body.size*body.page), data.length]
     }
 }
+
+//订单管理页面-订单详情数据
 function queryDetails(option){
     const query=[]
     //const body=JSON.parse(option.body)
@@ -139,4 +141,20 @@ function queryDetails(option){
     return query
 }
 
-export {queryOrderData, queryDetails}
+//商品采购-提交订单
+function postPurchaseOrder(option){
+    const arrayData= []
+    const postData=JSON.parse(option.body)
+    arrayData[0]="新增"
+    arrayData[1]=postData.supplierName
+    arrayData[2]=postData.warehouse
+    arrayData[3]=postData.purchaseTime
+    arrayData[4]="admin"
+    arrayData[5]=postData.tableData
+    arrayData[6]=postData.purchasePrice
+    arrayData[7]=postData.payment
+    arrayData[8]=postData.remarks
+    data.unshift(arrayData)
+    alert("订单提交成功")
+}
+export {queryOrderData, queryDetails, postPurchaseOrder}
