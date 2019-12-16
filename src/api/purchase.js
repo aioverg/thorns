@@ -82,7 +82,7 @@ purchaseApi.postPurchaseOrder = data =>{
     )
 }
 
-//采购退货-订单列表
+//退货订单-订单列表
 purchaseApi.returnOrder = data =>{
     return service(
         {
@@ -92,7 +92,7 @@ purchaseApi.returnOrder = data =>{
         }
     )
 }
-//采购退货-订单详情
+//退货订单-订单详情
 purchaseApi.returnOrderDetails = data => {
     return service(
         {
@@ -102,11 +102,21 @@ purchaseApi.returnOrderDetails = data => {
         }
     )
 }
-//采购退货-查询
+//退货订单-查询
 purchaseApi.returnOrderId = data => {
     return service(
         {
             url: '/purchaseReturnOrder/purchaseReturnOrderID',
+            data: data,
+            method: 'post'
+        }
+    )
+}
+//采购退货-提交
+purchaseApi.postReturnOrder = data => {
+    return service(
+        {
+            url: '/purchaseReturn/postPurchaseReturnOrder',
             data: data,
             method: 'post'
         }

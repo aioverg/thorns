@@ -12,14 +12,6 @@
 
 const data = [
     [
-        "001", "中值公司", "A001", "2019/12/16", "admin",
-        [
-            ["苹果", "A0001", "千克", "3.00", "3.00", "100", "100"],
-            ["梨子", "A0002", "千克", "5.00", "5.00", "100", "100"]
-        ],
-        "800.00", "AAAAA"
-    ],
-    [
         "002", "极限公司", "A001", "2019/12/12", "admin",
         [
             ["桃子", "A0003", "千克", "6.00", "6.00", "100", "100"],
@@ -103,18 +95,8 @@ function queryPurchaseReturnOrderDetails(option){
 
 //采购退货-提交退货订单
 function postPurchaseReturnOrder(option){
-    const arrayData= []
     const postData=JSON.parse(option.body)
-    arrayData[0]="新增"
-    arrayData[1]=postData.supplierName
-    arrayData[2]=postData.warehouse
-    arrayData[3]=postData.purchaseTime
-    arrayData[4]="admin"
-    arrayData[5]=postData.tableData
-    arrayData[6]=postData.purchasePrice
-    arrayData[7]=postData.payment
-    arrayData[8]=postData.remarks
-    data.unshift(arrayData)
+    data.unshift(postData)
     alert("订单提交成功")
 }
 
