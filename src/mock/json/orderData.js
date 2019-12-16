@@ -1,4 +1,4 @@
-//商品采购、采购退回、订单管理数据
+//商品采购、订单管理数据
 /*
     数据结构：
     [
@@ -158,7 +158,7 @@ function postPurchaseOrder(option){
     alert("订单提交成功")
 }
 
-//根据订单查询订单
+//根据订单ID查询订单
 function orderID(option){
     for(var i in data){
         if(data[i][0]==option.body){

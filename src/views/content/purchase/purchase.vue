@@ -22,7 +22,7 @@
             <tbody>
               <tr v-for="(value,index) in formData" v-bind:key="index" v-bind:index="index">
                 <td>{{index+1}}</td>
-                <td><input v-model="value.name" v-on:keyup.enter="blurQuery(value)"></td>
+                <td><input v-model="value.name" v-on:keyup.enter="commodityQuery(value)"></td>
                 <td>{{value.id}}</td>
                 <td>{{value.unit}}</td>
                 <td>{{value.systemPrice}}</td>
