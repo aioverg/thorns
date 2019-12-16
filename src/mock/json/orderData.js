@@ -157,4 +157,14 @@ function postPurchaseOrder(option){
     data.unshift(arrayData)
     alert("订单提交成功")
 }
-export {queryOrderData, queryDetails, postPurchaseOrder}
+
+//根据订单查询订单
+function orderID(option){
+    for(var i in data){
+        if(data[i][0]==option.body){
+            return data[i]
+        }
+    }
+    return null
+}
+export {queryOrderData, queryDetails, postPurchaseOrder, orderID}

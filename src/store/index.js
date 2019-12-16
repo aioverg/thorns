@@ -40,8 +40,12 @@ const store = new Vuex.Store({
             link: "/purchase/purchaseReturn"
           },
           {
-            title: "订单管理",
-            link: "/purchase/orderManagement"
+            title: "采购订单",
+            link: "/purchase/purchaseOrder"
+          },
+          {
+            title: "退货订单",
+            link: "/purchase/purchaseReturnOrder"
           },
           {
             title: "新增商品",

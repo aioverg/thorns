@@ -2,7 +2,7 @@
 
 <template>
   <div>
-    <div id="list-head"><p>>> 订单管理</p></div>
+    <div id="list-head"><p>>> 采购订单</p></div>
     <div id="list-body">
       <div style="margin: 0 20px 30px 20px;">
         <div>

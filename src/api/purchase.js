@@ -75,4 +75,15 @@ purchaseApi.postPurchaseOrder = data =>{
         }
     )
 }
+
+//根据ID查询采购订单
+purchaseApi.orderId = data => {
+    return service(
+        {
+            url: '/orderID',
+            data: data,
+            method: 'get'
+        }
+    )
+}
 export default purchaseApi

@@ -5,7 +5,7 @@ import {querySupplierData, addSupplierData, querySupplierName}  from './json/sup
 import {queryCommodutyData, addCommodityData, queryCommodityName} from './json/commodityData'  //商品数据
 import {queryWarehouseData, addWarehouseData} from './json/warehouseData'  //仓库数据
 import {queryCustomerData, addCustomerData} from './json/customerData'  //客户数据
-import {queryOrderData, queryDetails, postPurchaseOrder} from './json/orderData'  //
+import {queryOrderData, queryDetails, postPurchaseOrder, orderID} from './json/orderData'  //
 //设置数据响应延迟
 Mock.setup({
     timeout: '300-600'
@@ -35,6 +35,7 @@ Mock.mock('/querySupplierName', querySupplierName)
 Mock.mock('/queryCommodityName', queryCommodityName)
 //商品采购-提交订单
 Mock.mock('/postPurchaseOrder', postPurchaseOrder)
+Mock.mock('/orderID', orderID)
 
 
 
