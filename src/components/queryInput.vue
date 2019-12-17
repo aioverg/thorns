@@ -1,3 +1,4 @@
+<!--一个查询输入框组件，有两个参数(props)，title用于描述输入框，url查询数据的API接口-->
 <template>
   <div>
     <p>{{title}}</p>
