@@ -40,7 +40,9 @@
             v-bind:allPageData="queryData.allPage"
             v-bind:datas="queryData"
             v-bind:urlData="url"
+            v-model="queryDatas"
           ></page-turn>
+          <button v-on:click="con">parent</button>
         </div>
       </div>
     </div>
@@ -85,13 +87,15 @@ export default {
         size: 6, //每页的数据量
         allPage: null, //总共有多少页数据，每15条算一页
         queryValue: null //查询输入的数据
-      }
+      },
+      queryDatas: null,
     };
   },
   mounted() {
     this.supplierData(); //当页面加载时执行supplierAllData方法
   },
   methods: {
+    con:function(){console.log(this.queryDatas)},
     supplierData: function() {
       //获取供应商数据
       purchaseApi.supplierData(this.queryData).then(response => {
