@@ -23,7 +23,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr v-for="(value, index) in supData" v-bind:key="index">
+              <tr v-for="(value, index) in queryDatas" v-bind:key="index">
                 <td>{{index+1}}</td>
                 <td>{{value[0]}}</td>
                 <td>{{value[1]}}</td>
@@ -35,14 +35,6 @@
               </tr>
             </tbody>
           </table>
-          <page-turn
-            v-bind:pageData="queryData.page"
-            v-bind:allPageData="queryData.allPage"
-            v-bind:datas="queryData"
-            v-bind:urlData="url"
-            v-model="queryDatas"
-          ></page-turn>
-          <button v-on:click="con">parent</button>
         </div>
       </div>
     </div>
@@ -54,15 +46,10 @@
         <button v-on:click="query">查询</button>
         <button v-on:click="addSupplier">新增</button>
         <span>
-          <span v-on:click="down">上一页</span>
-          <span>第</span>
-          <span>
-            <input v-model="queryData.page" v-on:keyup.enter="supplierData" id="page" />
-          </span>
-          <span>页</span>
-          <span v-on:click="up">下一页</span>
-          <span>共<span>{{queryData.allPage}}</span>页
-          </span>
+          <page-turn
+            v-bind:urlData="url"
+            v-model="queryDatas"
+          ></page-turn>
         </span>
       </p>
     </div>
@@ -91,9 +78,6 @@ export default {
       queryDatas: null,
     };
   },
-  mounted() {
-    this.supplierData(); //当页面加载时执行supplierAllData方法
-  },
   methods: {
     con:function(){console.log(this.queryDatas)},
     supplierData: function() {
@@ -104,20 +88,6 @@ export default {
           response.data[1] / this.queryData.size
         ); //获取服务器中所有符合条件的数据条数，并计算出页数。
       });
-    },
-    up: function() {
-      //向前翻页
-      if (this.queryData.page < this.queryData.allPage) {
-        this.queryData.page++;
-        this.supplierData();
-      } else alert("最后一页");
-    },
-    down: function() {
-      //向后翻页
-      if (this.queryData.page > 1) {
-        this.queryData.page--;
-        this.supplierData();
-      } else alert("第一页");
     },
 
     query: function() {
