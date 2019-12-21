@@ -31,9 +31,10 @@ export default {
   name: "pageTurn",
   data: function() {
     return {
+      url: this.urlData,
+      jumpUrl: this.jumpUrlData,
       queryButton: this.queryButtonData,
       addButton: this.addButtonData,
-      url: this.urlData,
       returnData: null, //次数据会传入父组件
       postData: {
         //axios请求发送的数据
@@ -44,7 +45,7 @@ export default {
       }
     };
   },
-  props: ["urlData", "queryButtonData", "addButtonData"], //接收父组件的数据
+  props: ["urlData", "queryButtonData", "addButtonData", "jumpUrlData"], //接收父组件的数据
   watch: {
     //监听父组件的数据，当父组件数据变化时，更新引入数据
     pageData: function(newValue) {
@@ -94,7 +95,7 @@ export default {
     },
     jump: function() {
       //跳转页面
-      this.$router.push({ path: "/purchase/addSupplier" });
+      this.$router.push({ path: this.jumpUrl });
     }
   }
 };

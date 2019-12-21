@@ -15,6 +15,7 @@
     <div id="list-foot">
       <page-turn
         v-bind:urlData="pageTurn.url"
+        v-bind:jumpUrlData="pageTurn.jumpUrl"
         v-bind:queryButtonData="pageTurn.queryButton"
         v-bind:addButtonData="pageTurn.addButton"
         v-model="pageTurn.data"
@@ -24,8 +25,8 @@
 </template>
 
 <script>
-import pageTurn from "../../../components/pageTurn";
-import tablePiece from "../../../components/tablePiece";
+import pageTurn from "../../../components/pageTurn"
+import tablePiece from "../../../components/tablePiece"
 export default {
   name: "supplierManagement",
   components: {
@@ -36,6 +37,7 @@ export default {
     return {
       pageTurn: {
         url: "/suppliermanagement",
+        jumpUrl: '/purchase/addSupplier',
         queryButton: true,
         addButton: true,
         data: null

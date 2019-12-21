@@ -36,11 +36,11 @@ export default {
     width: 90%;
   }
   #table-pice th{
-    border: 1px solid;
+    border: 1px solid #dcdce6;
     text-align: center;
   }
   #table-pice td{
-    border: 1px solid;
+    border: 1px solid #dcdce6;
     text-align: center;
   }
   #table-pice span {
