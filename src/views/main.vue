@@ -135,5 +135,6 @@ li {
   border-top: 1px solid #e2e2e2;
   border-bottom: 1px solid #e2e2e2;
   height: 60px;
+  line-height: 60px;
 }
 </style>

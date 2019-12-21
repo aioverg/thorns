@@ -6,7 +6,7 @@ import './router/permission'
 import './mock'                   //引入mock模拟的数据，默认为/mock/index.js
 import axios from 'axios'         //全局引入axios
 import VueAxios from 'vue-axios'
-import './views/css/global.css'  //引入全局CSS样式
+//import './views/css/global.css'  //引入全局CSS样式
  
 Vue.use(VueAxios,axios);          //使用axios
 
