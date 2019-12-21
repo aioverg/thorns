@@ -4,8 +4,8 @@
   <span id="page-turn">
     <span id="page-turn-one">
       <span v-if="queryButton">
-        <input v-model="postData.queryValue" v-on:keyup.enter="query" />
-        <button v-on:click="query">查询</button>
+        <input v-model="postData.queryValue" v-on:keyup.enter="search" />
+        <button v-on:click="search">查询</button>
       </span>
       <button v-on:click="jump" v-if="addButton" id="page-turn-add">新增</button>
     </span>
@@ -86,12 +86,16 @@ export default {
         data: this.postData,
         method: "get"
       }).then(function(response) {
-        _this.returnData = response.data[0];
+        _this.returnData = response.data[0]
         _this.postData.allPage = Math.ceil(
           response.data[1] / _this.postData.size
         );
         _this.$emit("input", _this.returnData);
       });
+    },
+    search: function(){
+      this.query()
+      this.postData.page = 1
     },
     jump: function() {
       //跳转页面
