@@ -11,7 +11,6 @@
         v-bind:tableHead="tablePiece.tableHead"
         v-bind:tableBody="pageTurn.data"
       ></table-piece>
-      <div>{{aa}}</div>
     </div>
     <div id="list-foot">
       <p>

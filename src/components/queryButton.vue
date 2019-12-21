@@ -1,6 +1,6 @@
 <template>
     <span>
-        <input v-model="postData.queryValue"/>
+        <input v-model="postData.queryValue" v-on:keyup.enter="query" />
         <button v-on:click="query">查询</button>
         <button v-on:click="jump">新增</button>
     </span>
@@ -15,7 +15,7 @@ export default {
             inputValue: null,
             url: this.urlData,
             returnData: null,
-            "postData": {      //axios请求发送的数据
+            postData: {      //axios请求发送的数据
                 page: 1,         //请求的页面
                 size: 6,         //每页的数据量
                 allPage: null,   //总共有多少页数据，每15条算一页

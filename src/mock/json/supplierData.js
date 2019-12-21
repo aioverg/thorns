@@ -22,6 +22,7 @@ function querySupplierData(option){
         for(var i in data){
             for(var j in data){
                 if(body.queryValue==data[i][j]){
+                    console.log(data[i])
                     query.push(data[i])
                 }
             }
