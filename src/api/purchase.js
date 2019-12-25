@@ -2,14 +2,7 @@ import service from '../untils/service'
 
 const purchaseApi = {}
 
-//供应商管理-读取供应商数据
-purchaseApi.supplierData= data => {
-    return service({
-        url: '/suppliermanagement',  //API地址
-        data: data,    //发送的数据
-        method: 'get'  //请求方法
-    })
-}
+
 //新增供应商-提交新增供应商数据
 purchaseApi.addSupplier= data => {
     return service({
