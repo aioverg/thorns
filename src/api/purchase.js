@@ -11,14 +11,7 @@ purchaseApi.addSupplier= data => {
         method: "post"
     })
 }
-//商品管理-读取商品数据
-purchaseApi.commodityData= data =>{
-    return service({
-        url: '/commodityManagemen',
-        data: data,
-        method: "get"
-    })
-}
+
 //新增商品-提交新增商品数据
 purchaseApi.addCommodity= data =>{
     return service({
@@ -28,14 +21,6 @@ purchaseApi.addCommodity= data =>{
     })
 }
 
-//采购订单-订单列表数据
-purchaseApi.orderData = data => {
-    return service({
-        url: '/purchaseOrder',
-        data: data,
-        method: 'get'
-    })
-}
 //采购订单-订单详情数据
 purchaseApi.orderDetailsData = data =>{
     return service({
@@ -75,16 +60,6 @@ purchaseApi.postPurchaseOrder = data =>{
     )
 }
 
-//退货订单-订单列表
-purchaseApi.returnOrder = data =>{
-    return service(
-        {
-            url: '/purchaseReturnOrder/queryPurchaseReturnOrderData',
-            data: data,
-            method: 'get'
-        }
-    )
-}
 //退货订单-订单详情
 purchaseApi.returnOrderDetails = data => {
     return service(
@@ -95,16 +70,7 @@ purchaseApi.returnOrderDetails = data => {
         }
     )
 }
-//退货订单-查询
-purchaseApi.returnOrderId = data => {
-    return service(
-        {
-            url: '/purchaseReturnOrder/purchaseReturnOrderID',
-            data: data,
-            method: 'post'
-        }
-    )
-}
+
 //采购退货-提交
 purchaseApi.postReturnOrder = data => {
     return service(
