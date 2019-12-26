@@ -82,6 +82,14 @@ const store = new Vuex.Store({
             link: "/sales/salesReturn"
           },
           {
+            title: "退货订单",
+            link: "/sales/salesReturnOrder"
+          },
+          {
+            title: "销售订单",
+            link: '/sales/salesOrder'
+          },
+          {
             title: "新增客户",
             link: "/sales/addCustomer",
             display: "display: none"  //不显示的菜单栏

@@ -81,6 +81,16 @@ export const asyncRouterList = [
                 name: 'salesReturn',
                 component: () => import('../views/content/sales/salesReturn')  //销售退货
             },
+            salesReturnOrder: {
+                path: '/sales/salesReturnOrder',
+                name: 'salesReturnOrder',
+                component: () => import('../views/content/sales/salesReturnOrder')  //销售退货订单
+            },
+            salesOrder:{
+                path: '/sales/salesOrder',
+                name: 'salesOrder',
+                component: () => import('../views/content/sales/salesOrder')  //销售订单
+            },
             addCustomer: {
                 path: '/sales/addCustomer',
                 name: 'addCustomer',
