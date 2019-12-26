@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="order">
     <div id="list-head"><p>>> 商品采购</p></div>
     <div id="list-body">
       <div style="margin: 0 20px 30px 20px;">
@@ -60,14 +60,14 @@
               <tr v-for="(value, index) in purchaseReturnDetailedData" v-bind:key="index">
                 <td>{{index+1}}</td>
                 <td>
-                  <input v-model="purchaseReturnDetailedData[index][0]" v-on:keyup.enter="query(purchaseReturnDetailedData[index][0], index)">
+                  <input style="width: 200px;" v-model="purchaseReturnDetailedData[index][0]" v-on:keyup.enter="query(purchaseReturnDetailedData[index][0], index)">
                 </td>
                 <td>{{purchaseReturnDetailedData[index][1]}}</td>
                 <td>{{purchaseReturnDetailedData[index][2]}}</td>
                 <td>{{purchaseReturnDetailedData[index][3]}}</td>
                 <td>{{purchaseReturnDetailedData[index][4]}}</td>
                 <td>{{purchaseReturnDetailedData[index][6]}}</td>
-                <td><input></td>
+                <td><input style="width: 80px;" ></td>
                 <td>
                   <span v-on:click="del(index)" >删除</span>
                 </td>
@@ -159,3 +159,7 @@ export default {
   }
 }
 </script>
+
+<style>
+  @import "../../css/order.css"
+</style>

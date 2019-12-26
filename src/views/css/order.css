@@ -1,0 +1,77 @@
+
+#order #list-head p{
+  margin: 0 0 0 20px;
+  height: 40px;
+  line-height: 40px;
+}
+#order #list-body p{
+  margin: 25px 0 0 0;
+  font-weight: 600;
+  font-size: 14px;
+}
+#order #list-body input{
+  height: 25px;
+  width: 330px;
+  margin: 5px 0 0 0;
+}
+#order table{
+  border-collapse: collapse;
+  width: 90%;
+  margin: 5px 0 0 0;
+}
+#order table td{
+  border: 1px solid #0DB3A6;
+  text-align: center;
+  height: 35px;
+}
+#order #list-body table input {
+  margin: 0;
+  border: 1px solid #dcdce6;
+}
+
+#order #list-body button{
+  background-color: white;
+  border: 0;
+  cursor: pointer;
+  margin: 5px 0 0 0;
+  color: #0DB3A6;
+  font-size: 14px;
+}
+#order #list-body button:hover{
+  color: black;
+}
+#order textarea{
+  display: block;
+  min-width: 600px;
+  min-height: 100px;
+  margin: 5px 0 0 0;
+}
+#order #list-foot button{
+  height: 34px;
+  width: 118px;
+  float: left;
+  margin: 0 0 0 20px;
+  background-color: #0DB3A6;
+  border: 1px solid #0DB3A6;
+  cursor: pointer;
+  color: #fff;
+}
+#order #list-foot button:hover{
+  background-color: #0a8d83;
+  border: 1px solid #0a8d83;
+}
+#order #list-foot #search{ /*底栏搜索输入框样式*/
+  margin: 0 0 0 20px;
+  width: 200px;
+  height: 27px;
+  float: left;
+}
+#order #list-foot #page{ /*底栏页面输入框样式*/
+  width: 50px;
+  text-align: center;
+}
+#order #list-foot span{
+  display: inline-block;
+  height: 27px;
+  margin: 0 5px;
+}

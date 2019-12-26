@@ -1,7 +1,7 @@
 <!--商品采购组件-->
 
 <template>
-  <div>
+  <div id="order">
     <div id="list-head"><p>>> 商品采购</p></div>
     <div id="list-body">
       <div style="margin: 0 20px 30px 20px;">
@@ -22,13 +22,13 @@
             <tbody>
               <tr v-for="(value,index) in formData" v-bind:key="index" v-bind:index="index">
                 <td>{{index+1}}</td>
-                <td><input v-model="value.name" v-on:keyup.enter="commodityQuery(value)"></td>
+                <td><input style="width: 200px;" v-model="value.name" v-on:keyup.enter="commodityQuery(value)"></td>
                 <td>{{value.id}}</td>
                 <td>{{value.unit}}</td>
                 <td>{{value.systemPrice}}</td>
-                <td><input v-model="value.realPrice"></td>
+                <td><input style="width: 80px;" v-model="value.realPrice"></td>
                 <td>{{value.number}}</td>
-                <td><input></td>
+                <td><input style="width: 80px;"></td>
                 <td>
                   <span v-on:click="del(index)">删除</span>
                 </td>
@@ -122,3 +122,8 @@ export default {
   }
 };
 </script>
+
+
+<style>
+  @import "../../css/order.css"
+</style>
