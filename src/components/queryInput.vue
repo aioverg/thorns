@@ -4,7 +4,7 @@
     <p>{{title}}</p>
     <input onfocus="blur()" v-on:click="showBox" v-bind:value="value" />
     <div v-show="!show" class="query-input">
-      <input ref="inputFocus" v-on:blur="hiddenBox" v-on:input="watchInput(url, inputData)" v-model="inputData" />
+      <input ref="inputFocus" v-on:blur="hiddenBox" v-on:keyup.enter="watchInput(url, inputData)" v-model="inputData" />
       <ul>
         <li
           v-for="(value, index) in returnData"

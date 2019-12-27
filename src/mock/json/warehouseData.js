@@ -1,26 +1,20 @@
 //仓库部分模拟数据，数组中的数据依次是：[仓库名称, 负责人, 地址, 备注]
 const data=[
-    ["A001", "依依", "A001,A001", "00000"],
-    ["A002", "兒兒", "A001,A001", "00000"],
-    ["A003", "三三", "A001,A001", "00000"],
-    ["A004", "思思", "A001,A001", "00000"],
-    ["A005", "乌乌", "A001,A001", "00000"],
-    ["A006", "柳柳", "A001,A001", "00000"],
-    ["A007", "七七", "A001,A001", "00000"],
-    ["A008", "芭芭", "A001,A001", "00000"],
-    ["A009", "玖玖", "A001,A001", "00000"],
-    ["A010", "诗诗", "A001,A001", "00000"],
-    ["A011", "诗怡", "A001,A001", "00000"],
-    ["A012", "莳尓", "A001,A001", "00000"],
-    ["A013", "施叄", "A001,A001", "00000"],
-    ["A014", "师偲", "A001,A001", "00000"],
-    ["A015", "拾舞", "A001,A001", "00000"],
-    ["A016", "始浏", "A001,A001", "00000"],
+    ["A001", "依依", "2-101", "00000"],
+    ["A002", "兒兒", "2-102", "00000"],
+    ["A003", "三三", "2-103", "00000"],
+    ["A004", "思思", "2-104", "00000"],
+    ["A005", "乌乌", "2-105", "00000"],
+    ["A006", "柳柳", "5-101", "00000"],
+    ["A007", "七七", "5-102", "00000"],
+    ["A008", "芭芭", "5-103", "00000"],
+    ["A009", "玖玖", "5-104", "00000"],
+    ["A010", "诗诗", "5-105", "00000"],
 ]
 
 const warehouse = {}
 
-warehouse.queryWarehouseData = option => {
+warehouse.queryWarehouseData = option => {  //返回数据
     const query=[]
     const body=JSON.parse(option.body)
     if(body.queryValue){
@@ -38,7 +32,21 @@ warehouse.queryWarehouseData = option => {
     }
 }
 
-warehouse.addWarehouseData = option => {
+warehouse.queryWarehouseId = option => {  //返回数据
+    const query=[]
+    for(var i in data){
+        if(option.body==data[i][0]){
+            query.push(data[i][0])
+        }
+    }
+    if(query.length==0){
+        query.push("未找到")
+        return query
+    }
+    else{return query}
+}
+
+warehouse.addWarehouseData = option => {  //添加数据
     var obj=JSON.parse(option.body)
     var arr=[]
     for(var i in obj){

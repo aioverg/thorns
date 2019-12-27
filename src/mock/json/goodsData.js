@@ -20,7 +20,7 @@ const data=[
 
 const goods = {}
 
-goods.queryGoodsData = option => {
+goods.queryGoodsData = option => {  //返回数据
     const query=[]
     const body=JSON.parse(option.body)
     if(body.queryValue){
@@ -38,7 +38,7 @@ goods.queryGoodsData = option => {
     }
 }
 
-goods.addGoodsData = option => {
+goods.addGoodsData = option => {  //增加数据
     var obj=JSON.parse(option.body)
     var arr=[]
     for(var i in obj){
@@ -47,7 +47,7 @@ goods.addGoodsData = option => {
     data.unshift(arr)
 }
 
-goods.queryGoodsName = option => {
+goods.queryGoodsName = option => {  //返回数据
     for(var i in data){
         if(data[i][0]==option.body){
             return data[i]

@@ -1,10 +1,13 @@
 //引入mock
 import Mock from 'mockjs'
-import user from './json/user'
-import customer from './json/customerData'
-import order from './json/orderData'
-import goods from './json/goodsData'
-import warehouse from './json/warehouseData'
+import user from './json/user'                   //用户数据
+import order from './json/orderData'             //订单数据
+import goods from './json/goodsData'             //商品数据
+import customer from './json/customerData'       //客户数据
+import warehouse from './json/warehouseData'     //仓库数据
+
+
+
 
 
 //设置数据响应延迟
@@ -12,49 +15,58 @@ Mock.setup({
     timeout: '300-600'
 })
 
-//使用mockjs模拟数据
 
+//用户数据
 //登录页面-登录验证数据
 Mock.mock('/login', user)
 
-/*一级菜单 采购管理 菜单的数据*/
-//供应商管理页面-供应商管理数据
-Mock.mock('/suppliermanagement', customer.queryCustomerData)
-//新增供应商页面-新增供应商数据
-Mock.mock('/addSupplier', 'post', customer.addCustomerData)
-//商品管理页面-商品管理数据
-Mock.mock('/commodityManagemen', goods.queryGoodsData)
-//新增商品页面-新增商品数据
-Mock.mock('/addCommodity', 'post', goods.addGoodsData)
-//订单管理页面-订单管理列表数据
+
+//订单数据
+//采购订单-全部订单数据
 Mock.mock('/purchaseOrder', order.queryOrderData)
-//订单管理页面-订单详情数据
+//采购订单-订单详情数据
 Mock.mock('/purchaseOrderDetails', order.queryDetails)
-//商品采购页面-搜索供应商数据
-Mock.mock('/querySupplierName', customer.queryCustomerName)
-//商品采购页面-根据商品名字搜索商品信息
-Mock.mock('/queryCommodityName', goods.queryGoodsName)
-//商品采购-提交订单
+//商品采购-提交数据
 Mock.mock('/postPurchaseOrder', order.postPurchaseOrder)
 Mock.mock('/orderID', order.orderID)
-//采购退货订单-订单列表
+//采购退货订单-全部订单数据
 Mock.mock('/purchaseReturnOrder/queryPurchaseReturnOrderData', order.queryOrderData)
-//采购退货订单-订单详情
+//采购退货订单-订单详情数据
 Mock.mock('/purchaseReturnOrder/queryPurchaseReturnOrderDetails', order.queryDetails)
-//采购退货订单-查询  没有用到
-Mock.mock('/purchaseReturnOrder/purchaseReturnOrderID', order.orderID)
-//退货订单-提交
+//退货订单-提交数据
 Mock.mock('/purchaseReturn/postPurchaseReturnOrder', order.postPurchaseOrder)
+//采购退货-查询
+Mock.mock('/purchaseReturnOrder/purchaseReturnOrderID', order.orderID)
 
 
 
-//仓库列表数据
-Mock.mock('/warehousemanagement', warehouse.queryWarehouseData)
-//新增仓库数据
-Mock.mock('/addWarehouse', 'post', warehouse.addWarehouseData)
+
+//商品数据
+//商品管理-所有商品数据
+Mock.mock('/commodityManagemen', goods.queryGoodsData)
+//新增商品-新增商品数据
+Mock.mock('/addCommodity', 'post', goods.addGoodsData)
+//商品采购-根据商品名字搜索商品信息
+Mock.mock('/queryCommodityName', goods.queryGoodsName)
 
 
-//客户列表数据
+//客户数据
+//供应商管理-所有供应商数据
+Mock.mock('/suppliermanagement', customer.queryCustomerData)
+//新增供应商-新增供应商数据
+Mock.mock('/addSupplier', 'post', customer.addCustomerData)
+//客户管理-所有客户数据
 Mock.mock('/customerManagement', customer.queryCustomerData)
-//新增客户数据
+//客户管理-新增客户数据
 Mock.mock('/addCustomer', 'post', customer.addCustomerData)
+//商品采购-根据客户名字搜索客户
+Mock.mock('/querySupplierName', customer.queryCustomerName)
+
+
+//仓库数据
+//仓库管理-所有仓库数据
+Mock.mock('/warehousemanagement', warehouse.queryWarehouseData)
+//仓库管理-新增仓库数据
+Mock.mock('/addWarehouse', 'post', warehouse.addWarehouseData)
+//商品采购-根据仓库ID搜索仓库
+Mock.mock('/queryWarehouseId', warehouse.queryWarehouseId)

@@ -57,16 +57,16 @@
               </tr>
             </thead>
             <tbody>
-              <tr v-for="(value, index) in purchaseReturnDetailedData" v-bind:key="index">
+              <tr v-for="(value, index) in tableData" v-bind:key="index">
                 <td>{{index+1}}</td>
                 <td>
-                  <input style="width: 200px;" v-model="purchaseReturnDetailedData[index][0]" v-on:keyup.enter="query(purchaseReturnDetailedData[index][0], index)">
+                  <input style="width: 200px;" v-model="tableData[index][0]" v-on:keyup.enter="query(tableData[index][0], index)">
                 </td>
-                <td>{{purchaseReturnDetailedData[index][1]}}</td>
-                <td>{{purchaseReturnDetailedData[index][2]}}</td>
-                <td>{{purchaseReturnDetailedData[index][3]}}</td>
-                <td>{{purchaseReturnDetailedData[index][4]}}</td>
-                <td>{{purchaseReturnDetailedData[index][6]}}</td>
+                <td>{{tableData[index][1]}}</td>
+                <td>{{tableData[index][2]}}</td>
+                <td>{{tableData[index][3]}}</td>
+                <td>{{tableData[index][4]}}</td>
+                <td>{{tableData[index][6]}}</td>
                 <td><input style="width: 80px;" ></td>
                 <td>
                   <span v-on:click="del(index)" >删除</span>
@@ -105,10 +105,9 @@ export default {
       orderIdData: "001",
       orderData: [],
       returnTime: null,
-      user: "admin",
       total: null,
       remarks: null,
-      purchaseReturnDetailedData: [],
+      tableData: [],
       postPurchaseReturnData: []
     }
   },
@@ -125,22 +124,22 @@ export default {
     },
     
     addRow: function() {
-      this.purchaseReturnDetailedData.push([null,null,null,null,null,null,null])
-      console.log(this.purchaseReturnDetailedData)
+      this.tableData.push([null,null,null,null,null,null,null])
+      console.log(this.tableData)
     },
     query: function(value, index){
       for(var i in this.orderData[5]){
         if(value==this.orderData[5][i][0]){
-          this.$set(this.purchaseReturnDetailedData, index, this.orderData[5][i])
+          this.$set(this.tableData, index, this.orderData[5][i])
           //直接对数组赋值会导致视图无法更新，使用vue.$set()方法可以避免此类问题
-          //this.purchaseReturnDetailedData[index]=this.orderData[5][i]
+          //this.tableData[index]=this.orderData[5][i]
         }
       }
-      console.log(this.purchaseReturnDetailedData)
+      console.log(this.tableData)
       return value=null
     },
     del: function(index){
-      this.purchaseReturnDetailedData.splice(index, 1)
+      this.tableData.splice(index, 1)
     },
     postPurchaseReturn: function(){
       this.postPurchaseReturnData.push(
@@ -148,8 +147,7 @@ export default {
         this.orderData[1],
         this.orderData[2],
         this.returnTime,
-        this.user,
-        this.purchaseReturnDetailedData,
+        this.tableData,
         this.total,
         this.remarks
       )

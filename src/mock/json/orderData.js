@@ -1,16 +1,16 @@
 /*  订单数据
     数据结构：
     [
-        id, 供应商, 仓库, 采购时间, 采购员
+        id, 客户, 仓库, 订单时间, 操作员
         [
-            [名称, 仓库, 单位, 系统采购价格, 实际采购价格, 库存, 采购数量]
+            [名称, 仓库, 单位, 系统价格, 实际价格, 系统数量, 操作数量]
         ],
-        采购单总价, 实际支付金额, 备注
+        订单总价, 实际金额, 备注
     ]
 */
 const data = [
     [
-        "001", "公司", "A001", "2019/12/11", "admin",
+        "001", "中原公司", "A001", "2019/12/11", "admin",
         [
             ["苹果", "A0001", "千克", "3.00", "3.00", "20", "100"],
             ["梨子", "A0002", "千克", "5.00", "5.00", "20", "100"]
@@ -109,10 +109,10 @@ const data = [
 
 const order = {}
 
-order.queryOrderData = option => {
+order.queryOrderData = option => {  //返回数据
     const query=[]
     const body=JSON.parse(option.body)
-    if(body.queryValue){  //如果查询数据，就返回查询结果数组
+    if(body.queryValue){
         for(var i in data){
             for(var j in data){
                 if(body.queryValue==data[i][j]){
@@ -121,14 +121,13 @@ order.queryOrderData = option => {
             }
         }
         return [query.slice(body.size*(body.page-1),body.size*body.page), query.length]
-        //返回的数组中array[0]是本次查询的数据，array[1]是所有符合条件的数据条数。
     }
-    if(!body.queryValue){  //如果不是查询数据就返回所有数据
+    if(!body.queryValue){
         return [data.slice(body.size*(body.page-1),body.size*body.page), data.length]
     }
 }
 
-order.queryDetails = option => {
+order.queryDetails = option => {  //返回数据
     const query=[]
     //const body=JSON.parse(option.body)
     //if(option.body){console.log(option.body)}
@@ -140,7 +139,7 @@ order.queryDetails = option => {
     return query
 }
 
-order.postPurchaseOrder = option => {
+order.postPurchaseOrder = option => {  //添加数据
     const arrayData= []
     const postData=JSON.parse(option.body)
     arrayData[0]="新增"
@@ -156,7 +155,7 @@ order.postPurchaseOrder = option => {
     alert("订单提交成功")
 }
 
-order.orderID = option => {
+order.orderID = option => {  //返回数据
     for(var i in data){
         if(data[i][0]==option.body){
             return data[i]

@@ -10,7 +10,7 @@
           <table>
             <thead>
               <tr>
-                <th>序号</th><th>ID</th><th>供应商</th><th>仓库</th><th>退货时间</th><th>操作员</th><th>退货单总金额</th><th></th>
+                <th>序号</th><th>ID</th><th>供应商</th><th>仓库</th><th>退货时间</th><th>操作员</th><th>退货单总价</th><th>实际总金额</th><th></th>
               </tr>
             </thead>
             <tbody>
@@ -22,6 +22,7 @@
                 <td>{{value[3]}}</td>
                 <td>{{value[4]}}</td>
                 <td>{{value[6]}}</td>
+                <td>{{value[7]}}</td>
                 <td><a v-on:click="details(value[0])">详情</a></td>
               </tr>
             </tbody>

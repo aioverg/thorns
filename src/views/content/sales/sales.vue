@@ -114,7 +114,14 @@ export default {
     postData: function(){
       this.data.supplierName=this.$refs.supplierName.value
       this.data.warehouse=this.$refs.warehouse.value
-      this.data.tableData=this.formData
+      var formDataArray=[]
+      for(let i in this.formData){
+        formDataArray.push([])
+        for(let j in this.formData[i]){
+          formDataArray[i].push(this.formData[i][j])
+        }
+      }
+      this.data.tableData=formDataArray
       purchaseApi.postPurchaseOrder(this.data).then()
     }
   }

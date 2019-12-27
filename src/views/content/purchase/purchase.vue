@@ -6,7 +6,7 @@
     <div id="list-body">
       <div style="margin: 0 20px 30px 20px;">
         <query-input ref="supplierName" title="供应商 *" url="/querySupplierName"></query-input>
-        <query-input ref="warehouse" title="仓库 *" url="/querySupplierName"></query-input>
+        <query-input ref="warehouse" title="仓库 *" url="/queryWarehouseId"></query-input>
         <div>
           <p>采购时间 *</p>
           <input type="date" v-model="data.purchaseTime" />
@@ -116,7 +116,14 @@ export default {
     postData: function(){
       this.data.supplierName=this.$refs.supplierName.value
       this.data.warehouse=this.$refs.warehouse.value
-      this.data.tableData=this.formData
+      var formDataArray=[]
+      for(let i in this.formData){
+        formDataArray.push([])
+        for(let j in this.formData[i]){
+          formDataArray[i].push(this.formData[i][j])
+        }
+      }
+      this.data.tableData=formDataArray
       purchaseApi.postPurchaseOrder(this.data).then()
     }
   }
