@@ -1,7 +1,7 @@
 <!--新增商品组件，这个页面不在菜单栏中显示-->
 
 <template>
-  <div>
+  <div id="add">
     <div id="list-head"><p>>> 新增商品</p></div>
     <div id="list-body">
       <div style="margin: 0 20px 30px 20px;">
@@ -80,3 +80,7 @@ export default {
   }
 }
 </script>
+
+<style>
+  @import "../../css/add.css"
+</style>

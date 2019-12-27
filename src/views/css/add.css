@@ -1,0 +1,35 @@
+#add #list-head p{
+  margin: 0 0 0 20px;
+  height: 40px;
+  line-height: 40px;
+}
+#add #list-body p{
+  margin: 25px 0 0 0;
+  font-weight: 600;
+  font-size: 14px;
+}
+#add #list-body input{
+  height: 25px;
+  width: 330px;
+  margin: 5px 0 0 0;
+}
+#add textarea{
+  display: block;
+  min-width: 600px;
+  min-height: 100px;
+  margin: 5px 0 0 0;
+}
+#add #list-foot button{
+  height: 34px;
+  width: 118px;
+  float: left;
+  margin: 0 0 0 20px;
+  background-color: #0DB3A6;
+  border: 1px solid #0DB3A6;
+  cursor: pointer;
+  color: #fff;
+}
+#add #list-foot button:hover{
+  background-color: #0a8d83;
+  border: 1px solid #0a8d83;
+}

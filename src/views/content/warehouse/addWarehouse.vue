@@ -1,7 +1,7 @@
 <!--新增仓库组件-->
 
 <template>
-  <div>
+  <div id="add">
     <div id="list-head"><p>>> 新增仓库</p></div>
     <div id="list-body">
       <div style="margin: 0 20px 30px 20px;">
@@ -73,3 +73,8 @@ export default {
   }
 }
 </script>
+
+
+<style>
+  @import "../../css/add.css"
+</style>
