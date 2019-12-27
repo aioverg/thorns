@@ -1,4 +1,4 @@
-//商品部分模拟数据，数组中的数据依次是：[名称, 编号, 单位, 采购价, 销售价, 库存]
+//商品数据，数组中的数据依次是：[名称, 编号, 单位, 采购价, 销售价, 库存]
 const data=[
     ["苹果", "A0001", "千克", "3.00", "8.00", "11"],
     ["梨子", "A0002", "千克", "5.00", "8.00", "22"],
@@ -18,8 +18,9 @@ const data=[
     ["芒果", "A0016", "千克", "2.50", "8.50", "18"]
 ]
 
-//商品列表查询返回数据函数
-function queryCommodutyData(option){
+const goods = {}
+
+goods.queryGoodsData = option => {
     const query=[]
     const body=JSON.parse(option.body)
     if(body.queryValue){
@@ -37,8 +38,7 @@ function queryCommodutyData(option){
     }
 }
 
-//添加商品数据
-function addCommodityData(option){
+goods.addGoodsData = option => {
     var obj=JSON.parse(option.body)
     var arr=[]
     for(var i in obj){
@@ -47,8 +47,7 @@ function addCommodityData(option){
     data.unshift(arr)
 }
 
-//搜索商品信息
-function queryCommodityName(option){
+goods.queryGoodsName = option => {
     for(var i in data){
         if(data[i][0]==option.body){
             return data[i]
@@ -57,4 +56,5 @@ function queryCommodityName(option){
     return null
 }
 
-export {queryCommodutyData, addCommodityData, queryCommodityName}
+
+export default goods

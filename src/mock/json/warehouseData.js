@@ -18,9 +18,9 @@ const data=[
     ["A016", "始浏", "A001,A001", "00000"],
 ]
 
+const warehouse = {}
 
-//仓库管理数据查询返回函数
-function queryWarehouseData(option){
+warehouse.queryWarehouseData = option => {
     const query=[]
     const body=JSON.parse(option.body)
     if(body.queryValue){
@@ -38,8 +38,7 @@ function queryWarehouseData(option){
     }
 }
 
-//添加仓库数据
-function addWarehouseData(option){
+warehouse.addWarehouseData = option => {
     var obj=JSON.parse(option.body)
     var arr=[]
     for(var i in obj){
@@ -47,4 +46,6 @@ function addWarehouseData(option){
     }
     data.unshift(arr)
 }
-export {queryWarehouseData, addWarehouseData}
+
+
+export default warehouse
