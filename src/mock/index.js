@@ -5,6 +5,7 @@ import order from './json/orderData'             //订单数据
 import goods from './json/goodsData'             //商品数据
 import customer from './json/customerData'       //客户数据
 import warehouse from './json/warehouseData'     //仓库数据
+import stock from './json/stock'                 //仓库商品数据
 
 
 
@@ -70,3 +71,7 @@ Mock.mock('/warehousemanagement', warehouse.queryWarehouseData)
 Mock.mock('/addWarehouse', 'post', warehouse.addWarehouseData)
 //商品采购-根据仓库ID搜索仓库
 Mock.mock('/queryWarehouseId', warehouse.queryWarehouseId)
+
+
+//仓库商品数据
+Mock.mock('/warehouse/inventory', stock.queryID)

@@ -31,6 +31,7 @@
 <script>
 import pageTurn from "../../../components/pageTurn"
 import tablePiece from "../../../components/tablePiece"
+import warehouseApi from "../../../api/warehouse"
 export default {
   name: "warehouseManagement",
   components: {
@@ -63,7 +64,23 @@ export default {
   },
 
   methods: {
-    manageOneFuc: function(value){console.log(value)}
+    manageOneFuc: function(value){
+      const _this=this
+      console.log(value[0])
+      warehouseApi.queryStock(value[0]).then(
+        function(res){
+          _this.$router.push(
+            {
+              name: "inventory",
+              params: {
+                data: res.data,
+                id: value[0]
+              }
+            }
+          )
+        }
+      )
+    }
   }
 };
 </script>
