@@ -10,6 +10,9 @@
         v-bind:tableTitle="tablePiece.tableTitle"
         v-bind:tableHead="tablePiece.tableHead"
         v-bind:tableBody="pageTurn.data"
+        v-bind:manageOne="tablePiece.manageOne"
+        v-bind:manageOneTitle="tablePiece.manageOneTitle"
+        v-bind:manageOneValue="tablePiece.manageOneValue"
       ></table-piece>
     </div>
     <div id="list-foot">
@@ -18,6 +21,7 @@
         v-bind:jumpUrlData="pageTurn.jumpUrl"
         v-bind:queryButtonData="pageTurn.queryButton"
         v-bind:addButtonData="pageTurn.addButton"
+        v-bind:manageOneFuc="manageOneFuc"
         v-model="pageTurn.data"
       ></page-turn>
     </div>
@@ -44,6 +48,9 @@ export default {
       },
       tablePiece: {
         tableTitle: "商品列表",
+        manageOne: true,
+        manageOneTitle: "管理",
+        manageOneValue: "盘点",
         tableHead: [
           "序号",
           "仓库名称",
@@ -53,6 +60,10 @@ export default {
         ]
       }
     };
+  },
+
+  methods: {
+    manageOneFuc: function(value){console.log(value)}
   }
 };
 </script>
