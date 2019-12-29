@@ -21,7 +21,7 @@
           <table>
             <thead>
               <tr>
-                <td>序号</td><td>名称</td><td>编号</td><td>单位</td><td>库存</td><td>盘点数量</td><td>盈亏</td>
+                <td>序号</td><td>名称</td><td>编号</td><td>单位</td><td>库存</td><td>盘点数量</td><td>历史盈亏</td>
               </tr>
             </thead>
             <tbody>
@@ -56,7 +56,7 @@ export default {
   data: function(){
     return{
       listData: null,
-      id: null
+      id: null,
     }
   },
   mounted: function(){
