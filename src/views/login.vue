@@ -4,12 +4,12 @@
       <p>hello</p>
         <p><span>账号：</span><input v-model="name" placeholder="admin"></p>
         <p><span>密码：</span><input v-model="password" placeholder="admin"></p>
-        <button @click="login">登陆</button>
+        <button @click="login(name, password)">登陆</button>
     </div>
   </div>
 </template>
 <script>
-
+import login from "../router/permission"
 export default {
   name: 'login',
   data(){
@@ -19,32 +19,7 @@ export default {
     }
   },
   methods: {
-    //登录验证
-    login: function(){
-      const _this = this;
-      _this.axios.get('/login').then(
-        function(res){
-          //检错与服务器是否连接成功
-          if(res.status===200){
-            //检测账号是否存在
-            try {
-              res.data[_this.name].name
-            }
-            catch(err){
-              return alert("账号不存在")
-            }
-            //检测账号的密码是否正确
-            if(res.data[_this.name].name===_this.name&&res.data[_this.name].password===_this.password){
-              _this.$router.push({ path: '/main' })
-            }
-            else{
-              alert("密码错误")
-            }
-          }
-          else(alert("连接服务器失败"))
-        }
-      )
-    }
+    login: login
   }
 }
 </script>

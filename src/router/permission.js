@@ -47,5 +47,41 @@ for(var i in power){
     if(power[i]===true){newRouterList[0].children.push(asyncRouterList[0].children[i])}
 }
 newRouterList.push()
+
 //加载路由
 router.addRoutes(newRouterList)
+
+function login(name, password){
+    const _this = this;
+    _this.axios.get('/login').then(
+      function(res){
+        //检错与服务器是否连接成功
+        if(res.status===200){
+          //检测账号是否存在
+          try {
+            res.data[_this.name].name
+          }
+          catch(err){
+            return alert("账号不存在")
+          }
+          //检测账号的密码是否正确
+          if(res.data[name].name===name&&res.data[name].password===password){
+            _this.$router.push({ path: '/main' })
+            console.log(res.data.admin.power)
+            sessionStorage.setItem("power", JSON.stringify(res.data.admin.power))
+            console.log(sessionStorage)
+          }
+          else{
+            alert("密码错误")
+          }
+        }
+        else(alert("连接服务器失败"))
+      }
+    )
+  }
+
+
+
+
+
+export default login
