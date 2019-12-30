@@ -52,7 +52,7 @@ permission.loadRouter = function(){
     for(var i in power){
         if(power[i]===true){newRouterList[0].children.push(asyncRouterList[0].children[i])}
     }
-    newRouterList.push()
+    //newRouterList.push()
 
     //加载路由
     router.addRoutes(newRouterList)
@@ -85,7 +85,7 @@ permission.login=function(name, password){
           }
           //检测账号的密码是否正确
           if(res.data[name].name===name&&res.data[name].password===password){
-            _this.$router.push({ path: '/main' })
+            _this.$router.push({ path: '/analysis/contrast' })
             sessionStorage.setItem("power", JSON.stringify(res.data[name].power))
             permission.loadRouter()
           }

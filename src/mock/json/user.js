@@ -3,7 +3,6 @@ const user = {
         'name': 'admin',
         'password':'admin',
         'power':{
-            main: true,
             purchase: true,
             purchaseRturn: true,
             purchaseOrder: true,
