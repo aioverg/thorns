@@ -8,9 +8,10 @@ const newRouterList = [{
     component: () => import('../views/main'),  //主页面组件
     children: []
 }]
+
 //权限数据
 var power={
-/*
+/*  完整的权限列表
     main: true,
     purchase: true,
     purchaseRturn: true,
@@ -43,15 +44,20 @@ var power={
     noAuthority: true,   //没有权限显示的页面
 */
 }
-const permission=[]
+
+const permission={}
+
 permission.loadRouter = function(){
     power=JSON.parse(sessionStorage.getItem("power"))
     for(var i in power){
         if(power[i]===true){newRouterList[0].children.push(asyncRouterList[0].children[i])}
     }
     newRouterList.push()
+
+    //加载路由
     router.addRoutes(newRouterList)
 }
+
 /*
 //根据权限数据，从所有路由表中拉取有权限的路由，把这些路由组成一个新的路由表，然后加载
 for(var i in power){
@@ -63,6 +69,7 @@ newRouterList.push()
 router.addRoutes(newRouterList)
 
 */
+
 permission.login=function(name, password){
     const _this = this;
     _this.axios.get('/login').then(
@@ -79,7 +86,7 @@ permission.login=function(name, password){
           //检测账号的密码是否正确
           if(res.data[name].name===name&&res.data[name].password===password){
             _this.$router.push({ path: '/main' })
-            sessionStorage.setItem("power", JSON.stringify(res.data.admin.power))
+            sessionStorage.setItem("power", JSON.stringify(res.data[name].power))
             permission.loadRouter()
           }
           else{
@@ -89,7 +96,7 @@ permission.login=function(name, password){
         else(alert("连接服务器失败"))
       }
     )
-  }
+}
 
 
 
