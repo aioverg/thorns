@@ -9,7 +9,7 @@
   </div>
 </template>
 <script>
-import login from "../router/permission"
+import permission from "../router/permission"
 export default {
   name: 'login',
   data(){
@@ -19,7 +19,7 @@ export default {
     }
   },
   methods: {
-    login: login
+    login: permission.login
   }
 }
 </script>

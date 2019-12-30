@@ -5,9 +5,12 @@
 </template>
 
 <script>
-
+import permission from "./router/permission"
 export default {
-  name: 'App'
+  name: 'App',
+  mounted: function(){
+    window.addEventListener('beforeunload', permission.loadRouter())
+  }
 }
 </script>
 
