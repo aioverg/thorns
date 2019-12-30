@@ -4,7 +4,7 @@ import {asyncRouterList} from './asyncRouterList'
 //一个路由表
 const newRouterList = [{
     path: '/main',
-    name: 'main',
+    //name: 'main',
     component: () => import('../views/main'),  //主页面组件
     children: []
 }]

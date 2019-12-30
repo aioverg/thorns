@@ -148,7 +148,7 @@ export const asyncRouterList = [
             },
             addAccount:{
                 path: '/system/addaccount',
-                name: '/addAccount/',
+                name: 'addAccount',
                 component: ()=> import('../views/content/systemSetup/addAccount')  //添加账号
             },
             accountManagement: {
