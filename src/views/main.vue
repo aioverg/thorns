@@ -36,7 +36,7 @@
 <script>
 export default {
   computed: {
-    menu() {
+    menu: function() {
       return this.$store.state.menu;
     }
   },
