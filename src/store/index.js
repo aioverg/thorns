@@ -178,7 +178,8 @@ const store = new Vuex.Store({
     }
   },
   mutations: {
-    fx: function(){
+    revise: function(){
+
       this.state.menu.analysis.title="不知道"
     }
   }

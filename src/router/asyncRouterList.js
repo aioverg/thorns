@@ -1,4 +1,4 @@
-//存放所有需要权限才能访问的路由表
+//全部路由表
 export const asyncRouterList = [
     {
         path: '/main',

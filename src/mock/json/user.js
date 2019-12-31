@@ -1,43 +1,54 @@
 const user = {
-    'admin':{
-        'name': 'admin',
-        'password':'admin',
-        'power':{
-            purchase: true,
-            purchaseRturn: true,
-            purchaseOrder: true,
-            purchaseReturnOrder: true,
-            addSupplier: true,
-            addCommodity: true,
-            sales: true,
-            salesReturn: true,
-            salesReturnOrder: true,
-            salesOrder: true,
-            inventory: true,
-            addWarehouse: true,
-            contrast: true,
-            procurementStatistics: true,
-            salesStatistics: true,
-            customerCollection: true,
-            addCustomer: true,
-            customerReconciliation: true,
-            grossProfit: true,
-            supplierReconciliation: true,
-            supplierRemittance: true,
-            warehouseManagement: true,
-            commodityManagement: true,
-            supplierManagement: true,
-            customerManagement: true,
-            changePassword: true,
-            addAccount: true,
-            accountManagement: true,
-            noAuthority: true,   //没有权限显示的页面
+    admin:{
+        name: 'admin',
+        password:'admin',
+        authority:{
+            analysis: [
+                "contrast",
+                "procurementStatistics",
+                "salesStatistics"
+            ],
+            purchase: [
+                "purchase",
+                "purchaseRturn",
+                "purchaseOrder",
+                "purchaseReturnOrder",
+                "addCommodity",
+                "commodityManagement",
+                "addSupplier",
+                "supplierManagement"
+            ],
+            sales: [
+                "sales",
+                "salesReturn",
+                "salesReturnOrder",
+                "salesOrder",
+                "addCustomer",
+                "customerManagement"
+            ],
+            warehouse: [
+                "inventory",
+                "addWarehouse",
+                "warehouseManagement"
+            ],
+            finance: [
+                "grossProfit",
+                "customerCollection",
+                "customerReconciliation",
+                "supplierReconciliation",
+                "supplierRemittance"
+            ],
+            system: [
+                "changePassword",
+                "addAccount",
+                "accountManagement"
+            ]
         }
     },
-    'user':{
-        'name': 'user',
-        'password': 'user',
-        'power':[]
+    user:{
+        name: 'user',
+        password: 'user',
+        authority:{}
     }
 }
 

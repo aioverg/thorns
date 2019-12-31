@@ -21,7 +21,7 @@ export default {
   },
   methods: {
     login: permission.login,
-    gg: function(){this.$store.commit("fx")}
+    gg: function(){this.$store.commit("revise")}
   }
 }
 </script>
