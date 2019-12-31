@@ -65,7 +65,7 @@ export const asyncRouterList = [
                 //meta: { power:true },
             },
             //销售管理块--sales
-            sales:{
+            sales: {
                 path: '/sales/sales',
                 name: 'sales',
                 component: () => import('../views/content/sales/sales')  //商品销售
@@ -80,7 +80,7 @@ export const asyncRouterList = [
                 name: 'salesReturnOrder',
                 component: () => import('../views/content/sales/salesReturnOrder')  //销售退货订单
             },
-            salesOrder:{
+            salesOrder: {
                 path: '/sales/salesOrder',
                 name: 'salesOrder',
                 component: () => import('../views/content/sales/salesOrder')  //销售订单
@@ -141,12 +141,12 @@ export const asyncRouterList = [
             },
 
             //系统设置块--systemSetup
-            changePassword:{
+            changePassword: {
                 path: '/system/changepassword',
                 name: 'changePassword',
                 component: () => import('../views/content/systemSetup/changePassword')  //修改密码
             },
-            addAccount:{
+            addAccount: {
                 path: '/system/addaccount',
                 name: 'addAccount',
                 component: ()=> import('../views/content/systemSetup/addAccount')  //添加账号
