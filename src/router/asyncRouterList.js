@@ -149,12 +149,12 @@ export const asyncRouterList = [
             addAccount: {
                 path: '/system/addaccount',
                 name: 'addAccount',
-                component: ()=> import('../views/content/systemSetup/addAccount')  //添加账号
+                component: () => import('../views/content/systemSetup/addAccount')  //添加账号
             },
             accountManagement: {
                 path: '/system/accountmanagement',
                 name: 'accountManagement',
-                component: ()=> import('../views/content/systemSetup/accountManagement')  //账号管理
+                component: () => import('../views/content/systemSetup/accountManagement')  //账号管理
             },
             //没有权限块--errorPage
             noAuthority: {//没有权限显示的页面
