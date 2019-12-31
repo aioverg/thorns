@@ -8,16 +8,16 @@
     <div id="content">
       <div id="menu">
         <ul>
-          <li v-for="(one, idone) in menu" v-bind:key="idone">
+          <li v-for="(valueOne, keyOne) in menu" v-bind:key="keyOne">
               <!--如果目录有子目录就绑定click事件，且菜单不作为路由-->
-              <span v-if="one.children" v-on:click="up">{{one.title}}</span>
+              <span v-if="valueOne.children" v-on:click="up">{{valueOne.title}}</span>
               <!--如果没有子目录就不绑定click事件，菜单作为路由-->
-              <router-link v-else v-bind:to="one.link" tag="span">{{one.title}}</router-link>
+              <router-link v-else v-bind:to="valueOne.link" tag="span">{{valueOne.title}}</router-link>
             <ul style="display: none;">
               <!--如果有子目录则循环渲染出子目录-->
-              <template v-if="one.children">
-              <li v-for="(two, idtwo) in one.children" v-bind:key="idtwo">
-                <router-link v-bind:to="two.link" v-bind:style="two.display" tag="span" class="menu-child">{{two.title}}</router-link>
+              <template v-if="valueOne.children">
+              <li v-for="(valueTwo, keyTwo) in valueOne.children" v-bind:key="keyTwo">
+                <router-link v-bind:to="valueTwo.link" v-bind:style="valueTwo.display" tag="span" class="menu-child">{{valueTwo.title}}</router-link>
               </li>
               </template>
             </ul>

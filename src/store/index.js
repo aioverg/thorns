@@ -5,8 +5,9 @@ Vue.use(Vuex)
 //注意一定要使用数组，因为使用数组加载数据的逻辑较为简单
 const store = new Vuex.Store({
   state: {
-    menu: [
+    menu: {
       //进销分析块--analysis
+      analysis: 
       {
         title: "进销分析",
         link: "",
@@ -27,6 +28,7 @@ const store = new Vuex.Store({
       },
 
       //采购管理块--purchase
+      purchase:
       {
         title: "采购管理",
         link: "",
@@ -68,7 +70,8 @@ const store = new Vuex.Store({
         ]
       },
 
-      //销售管理
+      //销售管理--sales
+      sales:
       {
         title: "销售管理",
         link: "",
@@ -101,7 +104,8 @@ const store = new Vuex.Store({
         ]
       },
 
-      //仓库管理
+      //仓库管理--warehouse
+      warehouse:
       {
         title: "仓库管理",
         link: "",
@@ -122,7 +126,8 @@ const store = new Vuex.Store({
         ]
       },
 
-      //财务结算
+      //财务结算--finance
+      finance:
       {
         title: "财务结算",
         link: "",
@@ -150,7 +155,8 @@ const store = new Vuex.Store({
         ]
       },
 
-      //系统设置
+      //系统设置--system
+      system:
       {
         title: "系统设置",
         link: "",
@@ -169,7 +175,12 @@ const store = new Vuex.Store({
           }
         ]
       }
-    ]
+    }
+  },
+  mutations: {
+    fx: function(){
+      this.state.menu.analysis.title="不知道"
+    }
   }
 })
 

@@ -5,6 +5,7 @@
         <p><span>账号：</span><input v-model="name" placeholder="admin"></p>
         <p><span>密码：</span><input v-model="password" placeholder="admin"></p>
         <button @click="login(name, password)">登陆</button>
+        <button @click="gg">测试</button>
     </div>
   </div>
 </template>
@@ -19,7 +20,8 @@ export default {
     }
   },
   methods: {
-    login: permission.login
+    login: permission.login,
+    gg: function(){this.$store.commit("fx")}
   }
 }
 </script>

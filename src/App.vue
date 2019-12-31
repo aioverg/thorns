@@ -9,7 +9,8 @@ import permission from "./router/permission"
 export default {
   name: 'App',
   mounted: function(){
-    window.addEventListener('beforeunload', permission.loadRouter())
+    const _this=this
+    window.addEventListener('beforeunload', permission.loadRouter(_this))
   }
 }
 </script>

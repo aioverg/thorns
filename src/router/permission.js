@@ -47,7 +47,8 @@ var power={
 
 const permission={}
 
-permission.loadRouter = function(){
+permission.loadRouter = function(_this){
+    _this.$store.commit("fx")
     power=JSON.parse(sessionStorage.getItem("power"))
     for(var i in power){
         if(power[i]===true){newRouterList[0].children.push(asyncRouterList[0].children[i])}
@@ -87,7 +88,7 @@ permission.login=function(name, password){
           if(res.data[name].name===name&&res.data[name].password===password){
             _this.$router.push({ path: '/analysis/contrast' })
             sessionStorage.setItem("power", JSON.stringify(res.data[name].power))
-            permission.loadRouter()
+            permission.loadRouter(_this)
           }
           else{
             alert("密码错误")
