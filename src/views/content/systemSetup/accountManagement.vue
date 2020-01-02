@@ -40,7 +40,7 @@ export default {
   data: function(){
     return{
       pageTurn: {
-        url:"/system/addaccount",
+        url:"/system/accountmanagement",
         queryButton: true,
         addButton: true,
         jumpUrl: "/system/addaccount",
@@ -48,7 +48,7 @@ export default {
       },
       tablePiece: {
         tableTitle: "账户列表",
-        tableHead: ["账户名", "类型"],
+        tableHead: ["序号", "账户名", "部门"],
 
         manageOne: true,
         manageOneTitle: "管理",

@@ -1,3 +1,4 @@
+//完整数据
 const data = {
     admin:{
         name: 'admin',
@@ -47,14 +48,23 @@ const data = {
         }
     },
     user:{
-        name: 'user',
-        password: 'user',
+        name: 'saleser',
+        password: 'saleser',
         sort: "销售",
         authority:{}
     }
 }
 
+//简化数据
+const dataArray = [
+    ['admin', "管理员"],
+    ['saleser', "销售"]
+]
+
+
 const user = {}
+
+
 user.login = option => {
     //const query = {}
     const optionData = JSON.parse(option.body)
@@ -63,6 +73,24 @@ user.login = option => {
     }
     else{
         return "error"
+    }
+}
+
+user.nameData = option => {  //返回数据
+    const query=[]
+    const body=JSON.parse(option.body)
+    if(body.queryValue){
+        for(var i in dataArray){
+            for(var j in dataArray){
+                if(body.queryValue==dataArray[i][j]){
+                    query.push(dataArray[i])
+                }
+            }
+        }
+        return [query.slice(body.size*(body.page-1),body.size*body.page), query.length]
+    }
+    if(!body.queryValue){
+        return [dataArray.slice(body.size*(body.page-1),body.size*body.page), dataArray.length]
     }
 }
 export default user
