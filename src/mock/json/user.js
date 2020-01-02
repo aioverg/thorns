@@ -2,6 +2,7 @@ const user = {
     admin:{
         name: 'admin',
         password:'admin',
+        sort: "管理员",
         authority:{
             analysis: [
                 "contrast",
@@ -48,6 +49,7 @@ const user = {
     user:{
         name: 'user',
         password: 'user',
+        sort: "销售",
         authority:{}
     }
 }

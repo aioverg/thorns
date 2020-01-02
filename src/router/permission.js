@@ -45,7 +45,6 @@ permission.login=function(name, password){
           if(res.data[name].name===name&&res.data[name].password===password){
             _this.$router.push({ path: '/analysis/contrast' })
             sessionStorage.setItem("authority", JSON.stringify(res.data[name].authority))
-            console.log(5555)
             permission.loadRouter(_this)
           }
           else{
