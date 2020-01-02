@@ -2,10 +2,10 @@
   <div id="login">
     <div>
       <p>hello</p>
-        <p><span>账号：</span><input v-model="name" placeholder="admin"></p>
-        <p><span>密码：</span><input v-model="password" placeholder="admin"></p>
-        <button @click="login(name, password)">登陆</button>
-        <button @click="gg">测试</button>
+        <p><span>账号：</span><input v-model="user.name" placeholder="admin"></p>
+        <p><span>密码：</span><input v-model="user.password" placeholder="admin"></p>
+        <button @click="login(user)">登陆</button>
+        <button>测试</button>
     </div>
   </div>
 </template>
@@ -15,13 +15,14 @@ export default {
   name: 'login',
   data(){
     return{
-      name: 'admin',
-      password: 'admin'
+      user: {
+        name: 'admin',
+        password: 'admin'
+      }
     }
   },
   methods: {
     login: permission.login,
-    gg: function(){this.$store.commit("revise")}
   }
 }
 </script>

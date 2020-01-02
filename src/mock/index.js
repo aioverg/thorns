@@ -19,7 +19,7 @@ Mock.setup({
 
 //用户数据
 //登录页面-登录验证数据
-Mock.mock('/login', user)
+Mock.mock('/login', user.login)
 
 
 //订单数据

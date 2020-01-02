@@ -1,4 +1,4 @@
-const user = {
+const data = {
     admin:{
         name: 'admin',
         password:'admin',
@@ -54,4 +54,15 @@ const user = {
     }
 }
 
+const user = {}
+user.login = option => {
+    //const query = {}
+    const optionData = JSON.parse(option.body)
+    if(data[optionData.name] && data[optionData.name].password==optionData.password){
+        return data[optionData.name]
+    }
+    else{
+        return "error"
+    }
+}
 export default user

@@ -1,5 +1,6 @@
 import router from './index'
 import {asyncRouterList} from './asyncRouterList'
+import login from "../api/login"
 
 
 
@@ -28,35 +29,20 @@ permission.loadRouter = function(_this){
 }
 
 //登录
-permission.login=function(name, password){
-    const _this = this;
-    _this.axios.get('/login').then(
-      function(res){
-        //检错与服务器是否连接成功
-        if(res.status===200){
-          //检测账号是否存在
-          try {
-            res.data[_this.name].name
-          }
-          catch(err){
-            return alert("账号不存在")
-          }
-          //检测账号的密码是否正确
-          if(res.data[name].name===name&&res.data[name].password===password){
-            _this.$router.push({ path: '/analysis/contrast' })
-            sessionStorage.setItem("authority", JSON.stringify(res.data[name].authority))
-            permission.loadRouter(_this)
-          }
-          else{
-            alert("密码错误")
-          }
-        }
-        else(alert("连接服务器失败"))
-      }
-    )
+permission.login = function(data){
+  const _this = this
+  login(data).then(function(res){
+    if(res.data=="error"){
+      alert("账户/密码错误")
+    }
+    else{
+      console.log(res.data.authority)
+      _this.$router.push({ path: '/analysis/contrast' })
+      sessionStorage.setItem("authority", JSON.stringify(res.data.authority))
+      permission.loadRouter(_this)
+    }
+  })
 }
-
-
 
 
 
