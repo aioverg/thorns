@@ -156,6 +156,10 @@ const menuData = {
         title: "添加账号",
         link: "/system/addaccount"
       },
+      modityAccount: {
+        title: "修改账号",
+        link: "/system/modityAccount"
+      },
       accountManagement: {
         title: "账号管理",
         link: "/system/accountmanagement"

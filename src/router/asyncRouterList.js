@@ -56,13 +56,11 @@ export const asyncRouterList = [
                 path: '/purchase/commodityManagemen',
                 name: 'commodityManagement',
                 component: () => import('../views/content/purchase/commodityManagement'),  //商品管理
-                //meta: { power:true }
             },
             supplierManagement: {
                 path: '/purchase/suppliermanagement',
                 name: 'supplierManagement',
                 component: () => import('../views/content/purchase/supplierManagement'),  //供应商管理
-                //meta: { power:true },
             },
             //销售管理块--sales
             sales: {
@@ -94,7 +92,6 @@ export const asyncRouterList = [
                 path: '/sales/customermanagement',
                 name: 'customerManagement',
                 component: () => import('../views/content/sales/customerManagement'),  //客户管理
-                //meta: { power:true }
             },
             //仓库管理块--warehouse
             inventory: {
@@ -111,7 +108,6 @@ export const asyncRouterList = [
                 path: '/warehouse/warehousemanagement',
                 name: 'warehouseManagement',
                 component: () => import('../views/content/warehouse/warehouseManagement'),  //仓库管理
-                //meta: { power:true }
             },
             //财务结算块--financialSettlement
             customerCollection: {
@@ -150,6 +146,11 @@ export const asyncRouterList = [
                 path: '/system/addaccount',
                 name: 'addAccount',
                 component: () => import('../views/content/systemSetup/addAccount')  //添加账号
+            },
+            modityAccount: {
+                path: '/system/modityAccount',
+                name: 'modityAccount',
+                component: () => import('../views/content/systemSetup/modityAccount')  //修改账号
             },
             accountManagement: {
                 path: '/system/accountmanagement',

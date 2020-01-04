@@ -43,6 +43,7 @@ const data = {
             system: [
                 "changePassword",
                 "addAccount",
+                "modityAccount",
                 "accountManagement"
             ]
         }
