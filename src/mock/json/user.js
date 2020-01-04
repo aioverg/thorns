@@ -93,4 +93,17 @@ user.nameData = option => {  //返回数据
         return [dataArray.slice(body.size*(body.page-1),body.size*body.page), dataArray.length]
     }
 }
+
+user.addData = option => {
+    const acceptData = JSON.parse(option.body)
+    const arr = []
+    data[acceptData.name] = acceptData
+    arr.push(acceptData.name)
+    arr.push(acceptData.sort)
+    dataArray.unshift(arr)
+    console.log(acceptData)
+    console.log(dataArray)
+}
+
+
 export default user

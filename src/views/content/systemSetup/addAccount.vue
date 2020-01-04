@@ -131,6 +131,7 @@
 </template>
 
 <script>
+import systemApi from "../../../api/system"
 export default {
   name: "addAccount",
   data: function(){
@@ -191,6 +192,7 @@ export default {
 
     }
   },
+  mounted: function(){this.analysisAll=true},
   watch: {
     analysisAll: function(){
       if(this.analysisAll==true){
@@ -292,7 +294,7 @@ export default {
           }
         }
       }
-      console.log(datas)
+      systemApi.addData(datas)
     }
   }
 

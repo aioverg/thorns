@@ -22,6 +22,8 @@ Mock.setup({
 Mock.mock('/login', user.login)
 //系统设置-返回用户名和用户类型
 Mock.mock("/system/accountmanagement", user.nameData)
+//添加账号
+Mock.mock("/system/addaccount", user.addData)
 
 
 
