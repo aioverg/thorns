@@ -126,7 +126,6 @@ export default {
     
     addRow: function() {
       this.purchaseReturnDetailedData.push([null,null,null,null,null,null,null])
-      console.log(this.purchaseReturnDetailedData)
     },
     query: function(value, index){
       for(var i in this.orderData[5]){
@@ -136,7 +135,6 @@ export default {
           //this.purchaseReturnDetailedData[index]=this.orderData[5][i]
         }
       }
-      console.log(this.purchaseReturnDetailedData)
       return value=null
     },
     del: function(index){

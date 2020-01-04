@@ -25,7 +25,6 @@ customer.queryCustomerData = option => {  //返回数据
         for(var i in data){
             for(var j in data){
                 if(body.queryValue==data[i][j]){
-                    console.log(data[i])
                     query.push(data[i])
                 }
             }

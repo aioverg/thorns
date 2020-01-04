@@ -124,7 +124,7 @@
     </div>
     <div id="list-foot">
       <p>
-        <button>提交</button>
+        <button v-on:click="postData">提交</button>
       </p>
     </div>
   </div>
@@ -277,6 +277,24 @@ export default {
       }
     }
   },
+  methods: {
+    postData: function(){
+      const datas = {}
+      datas.name = this.data.name
+      datas.password = this.data.password
+      datas.sort = this.data.sort
+      datas.authoruty = {}
+      for (let i in this.data.authoruty){
+        datas.authoruty[i] = []
+        for (let j in this.data.authoruty[i]){
+          if(this.data.authoruty[i][j]==true){
+            datas.authoruty[i].push(j)
+          }
+        }
+      }
+      console.log(datas)
+    }
+  }
 
 };
 </script>

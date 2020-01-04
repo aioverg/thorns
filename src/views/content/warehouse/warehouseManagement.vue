@@ -66,7 +66,6 @@ export default {
   methods: {
     manageOneFuc: function(value){
       const _this=this
-      console.log(value[0])
       warehouseApi.queryStock(value[0]).then(
         function(res){
           _this.$router.push(

@@ -36,7 +36,6 @@ permission.login = function(data){
       alert("账户/密码错误")
     }
     else{
-      console.log(res.data.authority)
       _this.$router.push({ path: '/analysis/contrast' })
       sessionStorage.setItem("authority", JSON.stringify(res.data.authority))
       permission.loadRouter(_this)

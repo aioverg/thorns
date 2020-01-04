@@ -125,7 +125,6 @@ export default {
     
     addRow: function() {
       this.tableData.push([null,null,null,null,null,null,null])
-      console.log(this.tableData)
     },
     query: function(value, index){
       for(var i in this.orderData[5]){
@@ -135,7 +134,6 @@ export default {
           //this.tableData[index]=this.orderData[5][i]
         }
       }
-      console.log(this.tableData)
       return value=null
     },
     del: function(index){
