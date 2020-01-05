@@ -31,6 +31,7 @@
 <script>
 import pageTurn from "../../../components/pageTurn"
 import tablePiece from "../../../components/tablePiece"
+import systemApi from '../../../api/system'
 export default {
   name: 'accountManagement',
   components: {
@@ -54,6 +55,23 @@ export default {
         manageOneTitle: "管理",
         manageOneValue: "修改",
       }
+    }
+  },
+  methods: {
+    manageOneFuc: function(value){
+      const _this = this
+      systemApi.allData(value[0]).then(
+        function(res){
+          _this.$router.push(
+            {
+              name: "modityAccount",
+              params: {
+                userData: res.data,
+              }
+            }
+          )
+        }
+      )
     }
   }
 }

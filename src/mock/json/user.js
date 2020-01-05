@@ -48,7 +48,7 @@ const data = {
             ]
         }
     },
-    user:{
+    saleser:{
         name: 'saleser',
         password: 'saleser',
         sort: "销售",
@@ -102,9 +102,10 @@ user.addData = option => {
     arr.push(acceptData.name)
     arr.push(acceptData.sort)
     dataArray.unshift(arr)
-    console.log(acceptData)
-    console.log(dataArray)
 }
 
+user.allData = option => {
+    return data[option.body]
+}
 
 export default user

@@ -10,4 +10,12 @@ systemApi.addData = data => {
     })
 }
 
+systemApi.allData = data => {
+    return service({
+        url: "/system/modityAccount",
+        data: data,
+        method: "post"
+    })
+}
+
 export default systemApi
