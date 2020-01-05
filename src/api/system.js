@@ -18,4 +18,12 @@ systemApi.allData = data => {
     })
 }
 
+systemApi.modifyData = data => {
+    return service({
+        url: "/system/postModityAccount",
+        data: data,
+        method: "post"
+    })
+}
+
 export default systemApi

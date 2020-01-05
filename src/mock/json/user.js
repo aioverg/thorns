@@ -3,7 +3,7 @@ const data = {
     admin:{
         name: 'admin',
         password:'admin',
-        sort: "管理员",
+        sort: "管理",
         authority:{
             analysis: [
                 "contrast",
@@ -52,13 +52,30 @@ const data = {
         name: 'saleser',
         password: 'saleser',
         sort: "销售",
-        authority:{}
+        authority:{
+            analysis: [
+                "contrast",
+                "procurementStatistics",
+                "salesStatistics"
+            ],
+            sales: [
+                "sales",
+                "salesReturn",
+                "salesReturnOrder",
+                "salesOrder",
+                "addCustomer",
+                "customerManagement"
+            ],
+            system: [
+                "changePassword",
+            ]
+        }
     }
 }
 
 //简化数据
 const dataArray = [
-    ['admin', "管理员"],
+    ['admin', "管理"],
     ['saleser', "销售"]
 ]
 
@@ -108,4 +125,18 @@ user.allData = option => {
     return data[option.body]
 }
 
+user.modifyData = option => {
+    const acceptData = JSON.parse(option.body)
+    const arr = []
+    arr.push(acceptData.name)
+    arr.push(acceptData.sort)
+    for(let i in dataArray){
+        if(dataArray[i][0] == acceptData.oldName){
+            dataArray.splice(i, 1, arr)
+        }
+    }
+    delete data[acceptData.oldName]
+    data[acceptData.name] = acceptData
+    return alert("修改成功")
+}
 export default user

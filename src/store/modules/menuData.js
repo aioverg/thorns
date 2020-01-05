@@ -158,7 +158,8 @@ const menuData = {
       },
       modityAccount: {
         title: "修改账号",
-        link: "/system/modityAccount"
+        link: "/system/modityAccount",
+        display: "display: none"  //不显示的菜单栏
       },
       accountManagement: {
         title: "账号管理",

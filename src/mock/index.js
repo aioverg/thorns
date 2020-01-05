@@ -26,6 +26,8 @@ Mock.mock("/system/accountmanagement", user.nameData)
 Mock.mock("/system/addaccount", user.addData)
 //修改账号-返回账号所有信息
 Mock.mock("/system/modityAccount", user.allData)
+//修改账号-提交修改
+Mock.mock("/system/postModityAccount", user.modifyData)
 
 
 

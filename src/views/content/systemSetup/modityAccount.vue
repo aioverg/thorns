@@ -8,6 +8,10 @@
       <div style="margin: 0 20px 30px 20px;">
         <div>
           <p>用户名 *</p>
+          <input onfocus="blur()" class="input" v-model="data.oldName" />
+        </div>
+        <div>
+          <p>新用户名 *</p>
           <input class="input" v-model="data.name" />
         </div>
         <div>
@@ -36,9 +40,9 @@
                 </label>
               </p>
               <ul>
-                <li>进销对比<input type="checkbox" v-model="data.authoruty.analysis.contrast" /></li>
-                <li>采购统计<input type="checkbox" v-model="data.authoruty.analysis.procurementStatistics" /></li>
-                <li>销售统计<input type="checkbox" v-model="data.authoruty.analysis.salesStatistics" /></li>
+                <li>进销对比<input type="checkbox" v-model="data.authority.analysis.contrast" /></li>
+                <li>采购统计<input type="checkbox" v-model="data.authority.analysis.procurementStatistics" /></li>
+                <li>销售统计<input type="checkbox" v-model="data.authority.analysis.salesStatistics" /></li>
               </ul>
             </div>
             <div>
@@ -50,12 +54,12 @@
                 </label>
               </p>
               <ul>
-                <li>商品采购<input type="checkbox" v-model="data.authoruty.purchase.purchase" /></li>
-                <li>采购退货<input type="checkbox" v-model="data.authoruty.purchase.purchaseRturn" /></li>
-                <li>采购订单<input type="checkbox" v-model="data.authoruty.purchase.purchaseOrder" /></li>
-                <li>退货订单<input type="checkbox" v-model="data.authoruty.purchase.purchaseReturnOrder" /></li>
-                <li>商品管理<input type="checkbox" v-model="data.authoruty.purchase.commodityManagement" /></li>
-                <li>供应商管理<input type="checkbox" v-model="data.authoruty.purchase.supplierManagement" /></li>
+                <li>商品采购<input type="checkbox" v-model="data.authority.purchase.purchase" /></li>
+                <li>采购退货<input type="checkbox" v-model="data.authority.purchase.purchaseRturn" /></li>
+                <li>采购订单<input type="checkbox" v-model="data.authority.purchase.purchaseOrder" /></li>
+                <li>退货订单<input type="checkbox" v-model="data.authority.purchase.purchaseReturnOrder" /></li>
+                <li>商品管理<input type="checkbox" v-model="data.authority.purchase.commodityManagement" /></li>
+                <li>供应商管理<input type="checkbox" v-model="data.authority.purchase.supplierManagement" /></li>
               </ul>
             </div>
             <div>
@@ -67,11 +71,11 @@
                 </label>
               </p>
               <ul>
-                <li>商品销售<input type="checkbox" v-model="data.authoruty.sales.sales" /></li>
-                <li>销售退货<input type="checkbox" v-model="data.authoruty.sales.salesReturn" /></li>
-                <li>退货订单<input type="checkbox" v-model="data.authoruty.sales.salesReturnOrder" /></li>
-                <li>销售订单<input type="checkbox" v-model="data.authoruty.sales.salesOrder" /></li>
-                <li>客户管理<input type="checkbox" v-model="data.authoruty.sales.customerManagement" /></li>
+                <li>商品销售<input type="checkbox" v-model="data.authority.sales.sales" /></li>
+                <li>销售退货<input type="checkbox" v-model="data.authority.sales.salesReturn" /></li>
+                <li>退货订单<input type="checkbox" v-model="data.authority.sales.salesReturnOrder" /></li>
+                <li>销售订单<input type="checkbox" v-model="data.authority.sales.salesOrder" /></li>
+                <li>客户管理<input type="checkbox" v-model="data.authority.sales.customerManagement" /></li>
               </ul>
             </div>
             <div>
@@ -83,8 +87,8 @@
                 </label>
               </p>
               <ul>
-                <li>库存盘点<input type="checkbox" v-model="data.authoruty.warehouse.inventory" /></li>
-                <li>仓库管理<input type="checkbox" v-model="data.authoruty.warehouse.warehouseManagement" /></li>
+                <li>库存盘点<input type="checkbox" v-model="data.authority.warehouse.inventory" /></li>
+                <li>仓库管理<input type="checkbox" v-model="data.authority.warehouse.warehouseManagement" /></li>
               </ul>
             </div>
             <div>
@@ -96,11 +100,11 @@
                 </label>
               </p>
               <ul>
-                <li>毛利统计<input type="checkbox" v-model="data.authoruty.finance.grossProfit" /></li>
-                <li>客户收款<input type="checkbox" v-model="data.authoruty.finance.customerCollection" /></li>
-                <li>客户对账<input type="checkbox" v-model="data.authoruty.finance.customerReconciliation" /></li>
-                <li>供应商对账<input type="checkbox" v-model="data.authoruty.finance.supplierReconciliation" /></li>
-                <li>供应商汇款<input type="checkbox" v-model="data.authoruty.finance.supplierRemittance" /></li>
+                <li>毛利统计<input type="checkbox" v-model="data.authority.finance.grossProfit" /></li>
+                <li>客户收款<input type="checkbox" v-model="data.authority.finance.customerCollection" /></li>
+                <li>客户对账<input type="checkbox" v-model="data.authority.finance.customerReconciliation" /></li>
+                <li>供应商对账<input type="checkbox" v-model="data.authority.finance.supplierReconciliation" /></li>
+                <li>供应商汇款<input type="checkbox" v-model="data.authority.finance.supplierRemittance" /></li>
               </ul>
             </div>
             <div>
@@ -112,9 +116,9 @@
                 </label>
               </p>
               <ul>
-                <li>修改密码<input type="checkbox" v-model="data.authoruty.system.changePassword" /></li>
-                <li>添加账号<input type="checkbox" v-model="data.authoruty.system.addAccount" /></li>
-                <li>账号管理<input type="checkbox" v-model="data.authoruty.system.accountManagement" /></li>
+                <li>修改密码<input type="checkbox" v-model="data.authority.system.changePassword" /></li>
+                <li>添加账号<input type="checkbox" v-model="data.authority.system.addAccount" /></li>
+                <li>账号管理<input type="checkbox" v-model="data.authority.system.accountManagement" /></li>
               </ul>
             </div>
           </div>
@@ -136,10 +140,11 @@ export default {
   data: function(){
     return{
       data:{
+        oldName: null,
         name: null,
         password: null,
         sort: null,
-        authoruty: {
+        authority: {
           analysis: {
             contrast: false,
             procurementStatistics: false,
@@ -193,114 +198,120 @@ export default {
   watch: {
     analysisAll: function(){
       if(this.analysisAll==true){
-        this.data.authoruty.analysis.contrast = true
-        this.data.authoruty.analysis.procurementStatistics = true
-        this.data.authoruty.analysis.salesStatistics = true
+        this.data.authority.analysis.contrast = true
+        this.data.authority.analysis.procurementStatistics = true
+        this.data.authority.analysis.salesStatistics = true
       }
       else{
-        this.data.authoruty.analysis.contrast = false
-        this.data.authoruty.analysis.procurementStatistics = false
-        this.data.authoruty.analysis.salesStatistics = false
+        this.data.authority.analysis.contrast = false
+        this.data.authority.analysis.procurementStatistics = false
+        this.data.authority.analysis.salesStatistics = false
       }
     },
     purchaseAll: function(){
       if(this.purchaseAll==true){
-        this.data.authoruty.purchase.purchase = true
-        this.data.authoruty.purchase.purchaseRturn = true
-        this.data.authoruty.purchase.purchaseOrder = true
-        this.data.authoruty.purchase.purchaseReturnOrder = true
-        this.data.authoruty.purchase.commodityManagement = true
-        this.data.authoruty.purchase.supplierManagement = true
+        this.data.authority.purchase.purchase = true
+        this.data.authority.purchase.purchaseRturn = true
+        this.data.authority.purchase.purchaseOrder = true
+        this.data.authority.purchase.purchaseReturnOrder = true
+        this.data.authority.purchase.commodityManagement = true
+        this.data.authority.purchase.supplierManagement = true
       }
       else{
-        this.data.authoruty.purchase.purchase = false
-        this.data.authoruty.purchase.purchaseRturn = false
-        this.data.authoruty.purchase.purchaseOrder = false
-        this.data.authoruty.purchase.purchaseReturnOrder = false
-        this.data.authoruty.purchase.commodityManagement = false
-        this.data.authoruty.purchase.supplierManagement = false
+        this.data.authority.purchase.purchase = false
+        this.data.authority.purchase.purchaseRturn = false
+        this.data.authority.purchase.purchaseOrder = false
+        this.data.authority.purchase.purchaseReturnOrder = false
+        this.data.authority.purchase.commodityManagement = false
+        this.data.authority.purchase.supplierManagement = false
       }
     },
     salesAll: function(){
       if(this.salesAll==true){
-        this.data.authoruty.sales.sales = true
-        this.data.authoruty.sales.salesReturn = true
-        this.data.authoruty.sales.salesReturnOrder = true
-        this.data.authoruty.sales.salesOrder = true
-        this.data.authoruty.sales.customerManagement = true
+        this.data.authority.sales.sales = true
+        this.data.authority.sales.salesReturn = true
+        this.data.authority.sales.salesReturnOrder = true
+        this.data.authority.sales.salesOrder = true
+        this.data.authority.sales.customerManagement = true
       }
       else{
-        this.data.authoruty.sales.sales = false
-        this.data.authoruty.sales.salesReturn = false
-        this.data.authoruty.sales.salesReturnOrder = false
-        this.data.authoruty.sales.salesOrder = false
-        this.data.authoruty.sales.customerManagement = false
+        this.data.authority.sales.sales = false
+        this.data.authority.sales.salesReturn = false
+        this.data.authority.sales.salesReturnOrder = false
+        this.data.authority.sales.salesOrder = false
+        this.data.authority.sales.customerManagement = false
       }
     },
     warehouseAll: function(){
       if(this.warehouseAll==true){
-        this.data.authoruty.warehouse.inventory = true
-        this.data.authoruty.warehouse.warehouseManagement = true
+        this.data.authority.warehouse.inventory = true
+        this.data.authority.warehouse.warehouseManagement = true
       }
       else{
-        this.data.authoruty.warehouse.inventory = false
-        this.data.authoruty.warehouse.warehouseManagement = false
+        this.data.authority.warehouse.inventory = false
+        this.data.authority.warehouse.warehouseManagement = false
       }
     },
     financeAll: function(){
       if(this.financeAll==true){
-        this.data.authoruty.finance.grossProfit = true
-        this.data.authoruty.finance.customerCollection = true
-        this.data.authoruty.finance.customerReconciliation = true
-        this.data.authoruty.finance.supplierReconciliation = true
-        this.data.authoruty.finance.supplierRemittance = true
+        this.data.authority.finance.grossProfit = true
+        this.data.authority.finance.customerCollection = true
+        this.data.authority.finance.customerReconciliation = true
+        this.data.authority.finance.supplierReconciliation = true
+        this.data.authority.finance.supplierRemittance = true
       }
       else{
-        this.data.authoruty.finance.grossProfit = false
-        this.data.authoruty.finance.customerCollection = false
-        this.data.authoruty.finance.customerReconciliation = false
-        this.data.authoruty.finance.supplierReconciliation = false
-        this.data.authoruty.finance.supplierRemittance = false
+        this.data.authority.finance.grossProfit = false
+        this.data.authority.finance.customerCollection = false
+        this.data.authority.finance.customerReconciliation = false
+        this.data.authority.finance.supplierReconciliation = false
+        this.data.authority.finance.supplierRemittance = false
       }
     },
     systemAll: function(){
       if(this.systemAll==true){
-        this.data.authoruty.system.changePassword = true
-        this.data.authoruty.system.addAccount = true
-        this.data.authoruty.system.accountManagement = true
+        this.data.authority.system.changePassword = true
+        this.data.authority.system.addAccount = true
+        this.data.authority.system.accountManagement = true
       }
       else{
-        this.data.authoruty.system.changePassword = false
-        this.data.authoruty.system.addAccount = false
-        this.data.authoruty.system.accountManagement = false
+        this.data.authority.system.changePassword = false
+        this.data.authority.system.addAccount = false
+        this.data.authority.system.accountManagement = false
       }
     }
   },
   mounted: function(){
     console.log(this.$route.params.userData)
+    this.data.oldName = this.$route.params.userData.name
     this.data.name = this.$route.params.userData.name
     this.data.password = this.$route.params.userData.password
+    this.data.sort = this.$route.params.userData.sort
+    for(let i in this.$route.params.userData.authority){
+      for(let j in this.$route.params.userData.authority[i]){
+        this.data.authority[i][this.$route.params.userData.authority[i][j]] = true
+      }
+    }
   },
   methods: {
     postData: function(){
       const datas = {}
+      datas.oldName = this.data.oldName
       datas.name = this.data.name
       datas.password = this.data.password
       datas.sort = this.data.sort
-      datas.authoruty =  {}
-      for (let i in this.data.authoruty){
-        datas.authoruty[i] = []
-        for (let j in this.data.authoruty[i]){
-          if(this.data.authoruty[i][j]==true){
-            datas.authoruty[i].push(j)
+      datas.authority =  {}
+      for (let i in this.data.authority){
+        datas.authority[i] = []
+        for (let j in this.data.authority[i]){
+          if(this.data.authority[i][j]==true){
+            datas.authority[i].push(j)
           }
         }
       }
-      systemApi.addData(datas)
-    },
-
+      systemApi.modifyData(datas)
+    }
   }
-
 };
 </script>
 
