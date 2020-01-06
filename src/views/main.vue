@@ -99,14 +99,14 @@ li {
   background-color: #e6f6f4;
 }
 ::-webkit-scrollbar {
-  width: 9px; /*滚动条的宽度*/
+  width: 7px; /*滚动条的宽度*/
 }
 ::-webkit-scrollbar-thumb {
-  border-radius: 6px; /*滚动条的圆角*/
+  border-radius: 7px; /*滚动条的圆角*/
   background: #c2c2c2; /*滚动条的颜色 */
 }
 ::-webkit-scrollbar-track {
-  border-radius: 10px; /*滚动条轨道圆角*/
+  border-radius: 7px; /*滚动条轨道圆角*/
   background: rgba(250, 250, 250, 0.9); /*滚动条轨道颜色*/
 }
 #list-div {
