@@ -1,9 +1,7 @@
 <template>
   <div>
     <div id="header">
-      <h2>
-        <span>进销存系统</span>
-      </h2>
+      <span>进销存系统{{bodywidth}}</span>
     </div>
     <div id="content">
       <div id="menu">
@@ -38,6 +36,12 @@ export default {
   computed: {
     menu: function() {
       return this.$store.state.menu;
+    },
+    bodywidth: function(){
+      return document.body.clientWidth
+    },
+    bodyheight: function(){
+      return document.body.clientHeight
     }
   },
   methods: {
@@ -67,7 +71,7 @@ export default {
 #menu {
   display: inline-block;
   flex-grow: 1;
-  width: 300px;
+  width: 250px;
   font-size: 14px;
   background-color: white;
   overflow-y: scroll;
@@ -76,23 +80,23 @@ export default {
 }
 #menu ul {
   padding: 0;
-  width: 280px;
+  width: 250px;
 }
 li {
   list-style: none;
-  width: 280px;
+  width: 250px;
 }
 #menu span {
   display: inline-block;
   padding: 10px 0 10px 0;
-  width: 280px;
+  width: 250px;
   cursor: pointer;
 }
 #menu .menu-child {
   display: inline-block;
   box-sizing: border-box;
-  padding: 10px 0 10px 140px;
-  width: 280px;
+  padding: 10px 0 10px 130px;
+  width: 250px;
   text-align: left;
 }
 #menu span:hover {
