@@ -1,9 +1,9 @@
 <template>
   <div>
-    <div id="header">
-      <span>进销存系统{{bodywidth}}</span>
+    <div id="header" v-bind:style="{height: bodyheight * 0.1 + 'px'}">
+      <span>进销存系统{{bodyheight}}</span>
     </div>
-    <div id="content">
+    <div id="content" v-bind:style="{height: bodyheight * 0.9 + 'px'}">
       <div id="menu">
         <ul>
           <li v-for="(valueOne, keyOne) in menu" v-bind:key="keyOne">
@@ -37,11 +37,8 @@ export default {
     menu: function() {
       return this.$store.state.menu;
     },
-    bodywidth: function(){
-      return document.body.clientWidth
-    },
     bodyheight: function(){
-      return document.body.clientHeight
+      return window.innerHeight
     }
   },
   methods: {
@@ -61,22 +58,24 @@ export default {
 #header {
   box-sizing: border-box;
   background-color: white;
+  border-bottom: 1px solid #e2e2e2;
 }
 #content {
   display: flex;
   width: 100%;
   justify-content: flex-start;
   flex-wrap: wrap;
+  background-color: white;
 }
 #menu {
   display: inline-block;
   flex-grow: 1;
   width: 250px;
   font-size: 14px;
-  background-color: white;
   overflow-y: scroll;
   overflow-x: hidden;
-  height: 580px;
+  height:632px;
+  border-bottom:1px solid #e2e2e2;
 }
 #menu ul {
   padding: 0;
@@ -102,23 +101,10 @@ li {
 #menu span:hover {
   background-color: #e6f6f4;
 }
-::-webkit-scrollbar {
-  width: 7px; /*滚动条的宽度*/
-}
-::-webkit-scrollbar-thumb {
-  border-radius: 7px; /*滚动条的圆角*/
-  background: #c2c2c2; /*滚动条的颜色 */
-}
-::-webkit-scrollbar-track {
-  border-radius: 7px; /*滚动条轨道圆角*/
-  background: rgba(250, 250, 250, 0.9); /*滚动条轨道颜色*/
-}
 #list-div {
   display: inline-block;
   flex-grow: 99;
-  background-color: white;
   width: 300px;
-  height: 580px;
 }
 #list {
   display: flex;
@@ -126,12 +112,11 @@ li {
 }
 #list-head {
   height: 40px;
-  border-top: 1px solid #e2e2e2;
   border-bottom: 1px solid #e2e2e2;
   text-align: left;
 }
 #list-body {
-  height: 480px;
+  height: 530px;
   overflow-y: scroll;
   text-align: left;
 }
