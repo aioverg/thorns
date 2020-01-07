@@ -54,8 +54,8 @@
     </div>
     <div id="list-foot">
       <page-turn
-        v-bind:urlData="pageTurn.url"
-        v-bind:queryButtonData="pageTurn.queryButton"
+        v-bind:url="pageTurn.url"
+        v-bind:queryButton="pageTurn.queryButton"
         v-model="pageTurn.Data"
       >
       </page-turn>

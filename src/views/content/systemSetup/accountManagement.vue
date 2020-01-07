@@ -16,10 +16,10 @@
     </div>
     <div id="list-foot">
       <page-turn
-        v-bind:urlData="pageTurn.url"
-        v-bind:jumpUrlData="pageTurn.jumpUrl"
-        v-bind:queryButtonData="pageTurn.queryButton"
-        v-bind:addButtonData="pageTurn.addButton"
+        v-bind:url="pageTurn.url"
+        v-bind:jumpUrl="pageTurn.jumpUrl"
+        v-bind:queryButton="pageTurn.queryButton"
+        v-bind:addButton="pageTurn.addButton"
         v-model="pageTurn.data"
       ></page-turn>
     </div>

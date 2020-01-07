@@ -31,11 +31,7 @@ export default {
   name: "pageTurn",
   data: function() {
     return {
-      url: this.urlData,
-      jumpUrl: this.jumpUrlData,
-      queryButton: this.queryButtonData,
-      addButton: this.addButtonData,
-      returnData: null, //次数据会传入父组件
+      returnData: null, //此数据会传入父组件
       postData: {
         //axios请求发送的数据
         page: 1, //请求的页面
@@ -45,7 +41,7 @@ export default {
       }
     };
   },
-  props: ["urlData", "queryButtonData", "addButtonData", "jumpUrlData"], //接收父组件的数据
+  props: ["url", "queryButton", "addButton", "jumpUrl"], //接收父组件的数据
   watch: {
     //监听父组件的数据，当父组件数据变化时，更新引入数据
     pageData: function(newValue) {
