@@ -131,6 +131,4 @@ export default {
 </script>
 
 
-<style>
-  @import "../../css/order.css"
-</style>
+<style src="../../css/order.css"></style>

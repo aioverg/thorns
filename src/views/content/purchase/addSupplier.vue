@@ -90,6 +90,4 @@ export default {
 </script>
 
 
-<style>
-  @import "../../css/add.css"
-</style>
+<style src="../../css/add.css"></style>

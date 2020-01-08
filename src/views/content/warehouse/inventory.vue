@@ -85,6 +85,4 @@ export default {
 
 
 
-<style>
-  @import "../../css/order.css"
-</style>
+<style src="../../css/order.css"></style>

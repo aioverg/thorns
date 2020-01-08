@@ -115,6 +115,11 @@ li {
   border-bottom: 1px solid #e2e2e2;
   text-align: left;
 }
+#list-head p{
+  margin: 0 0 0 20px;
+  height: 40px;
+  line-height: 40px;
+}
 #list-body {
   height: 530px;
   overflow-y: scroll;
