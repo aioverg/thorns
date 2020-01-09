@@ -1,7 +1,11 @@
 <template>
   <div>
-    <div id="header" v-bind:style="{height: bodyheight * 0.1 + 'px'}">
-      <span>进销存系统{{bodyheight}}</span>
+    <div id="header" v-bind:style="{height: bodyheight * 0.1 + 'px', lineHeight: bodyheight * 0.1 + 'px'}">
+      <h2 v-bind:style="{lineHeight: bodyheight * 0.1 + 'px'}">管理系统</h2>
+      <div>
+        <span>用户：{{username}}</span>
+        <span style="margin: 0 0 0 20px; cursor: pointer;" v-on:click="out">退出</span>
+      </div>
     </div>
     <div id="content" v-bind:style="{height: bodyheight * 0.9 + 'px'}">
       <div id="menu">
@@ -33,6 +37,15 @@
 
 <script>
 export default {
+  data: function(){
+    return {
+      username: null
+    }
+  },
+  mounted:function(){
+    let cookieData = document.cookie.split("=")
+    this.username = cookieData[1]
+  },
   computed: {
     menu: function() {
       return this.$store.state.menu;
@@ -48,6 +61,11 @@ export default {
       } else {
         el.target.nextSibling.style.display = "none";
       }
+    },
+    out: function(){
+      document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 GMT";
+      window.sessionStorage.removeItem("authority");
+      this.$router.push({ path: '/' })
     }
   }
 };
@@ -59,6 +77,15 @@ export default {
   box-sizing: border-box;
   background-color: white;
   border-bottom: 1px solid #e2e2e2;
+}
+#header h2 {
+  margin: 0;
+  display: inline-block;
+}
+#header div {
+  display: inline-block;
+  position: relative;
+  left: 30%;
 }
 #content {
   display: flex;

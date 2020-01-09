@@ -38,6 +38,7 @@ permission.login = function(data){
     else{
       _this.$router.push({ path: '/analysis/contrast' })
       sessionStorage.setItem("authority", JSON.stringify(res.data.authority))
+      document.cookie = "username=" + data.name
       permission.loadRouter(_this)
     }
   })
