@@ -28,6 +28,8 @@ Mock.mock("/system/addaccount", user.addData)
 Mock.mock("/system/modityAccount", user.allData)
 //修改账号-提交修改
 Mock.mock("/system/postModityAccount", user.modifyData)
+//修改密码
+Mock.mock("/system/changepassword", user.changePassword)
 
 
 

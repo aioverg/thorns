@@ -139,4 +139,10 @@ user.modifyData = option => {
     data[acceptData.name] = acceptData
     return alert("修改成功")
 }
+
+user.changePassword = option => {
+    const acceptData = JSON.parse(option.body)
+    data[acceptData[0]].password = acceptData[1]
+    console.log(data[acceptData[0]].password)
+}
 export default user

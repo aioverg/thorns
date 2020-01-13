@@ -26,4 +26,11 @@ systemApi.modifyData = data => {
     })
 }
 
+systemApi.changePassword = data => {
+    return service({
+        url: "/system/changepassword",
+        data: data,
+        method: "post"
+    })
+}
 export default systemApi
