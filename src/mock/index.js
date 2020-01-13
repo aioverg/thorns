@@ -6,6 +6,7 @@ import goods from './json/goodsData'             //商品数据
 import customer from './json/customerData'       //客户数据
 import warehouse from './json/warehouseData'     //仓库数据
 import stock from './json/stock'                 //仓库商品数据
+import data from './json/data'                   //图表数据
 
 
 
@@ -16,6 +17,8 @@ Mock.setup({
     timeout: '300-600'
 })
 
+//进销对比
+Mock.mock("/analysis/contrast", data.contrast)
 
 //用户数据
 //登录页面-登录验证数据

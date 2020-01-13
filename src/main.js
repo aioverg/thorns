@@ -9,7 +9,6 @@ import VueAxios from 'vue-axios'
 //import './views/css/global.css'  //引入全局CSS样式
  
 Vue.use(VueAxios,axios);          //使用axios
-
 Vue.config.productionTip = false
 
 new Vue({                         //创建一个全局的Vue实例，将App.vue模块挂载到index.html
