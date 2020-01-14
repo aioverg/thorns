@@ -282,7 +282,6 @@ export default {
     }
   },
   mounted: function(){
-    console.log(this.$route.params.userData)
     this.data.oldName = this.$route.params.userData.name
     this.data.name = this.$route.params.userData.name
     this.data.password = this.$route.params.userData.password

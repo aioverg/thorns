@@ -143,6 +143,5 @@ user.modifyData = option => {
 user.changePassword = option => {
     const acceptData = JSON.parse(option.body)
     data[acceptData[0]].password = acceptData[1]
-    console.log(data[acceptData[0]].password)
 }
 export default user

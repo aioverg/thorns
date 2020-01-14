@@ -35,7 +35,6 @@ export default {
       
       analysisApi.contrast().then(
         res => {
-          console.log(res.data)
           this.chartData.rows = res.data
         }
       )
