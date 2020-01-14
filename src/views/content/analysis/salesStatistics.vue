@@ -6,7 +6,7 @@
     </div>
     <div id="list-foot">
       <p>
-        <input id="search" onfocus="blur()" />
+        <input id="search" value="2019-10-01" onfocus="blur()" />
         <button v-on:click="query">提交</button>
       </p>
     </div>
