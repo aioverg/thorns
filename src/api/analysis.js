@@ -10,4 +10,20 @@ analysisApi.contrast = data => {
     })
 }
 
+analysisApi.procurementstatistics = data => {
+    return service({
+        url: "/analysis/procurementstatistics",
+        data: data,
+        method: "get"
+    })
+}
+
+analysisApi.salesstatistics = data => {
+    return service({
+        url: "/analysis/salesstatistics",
+        data: data,
+        method: "get"
+    })
+}
+
 export default analysisApi
