@@ -1,6 +1,6 @@
 # thorns
 
-## 用vue搭建的进销存管理系统，使用mock模拟后台数据.
+## 用vue搭建的erp管理系统，使用mock模拟后台数据.
 
 ## Project setup
 ```
